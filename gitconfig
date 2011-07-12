@@ -1,0 +1,8 @@
+[user]
+	name = Chris Boyle
+	email = chris@bbck.net
+[core]
+	excludesfile = /home/chris/.gitignore
+	editor = mate -w
+[color]
+	ui = auto
