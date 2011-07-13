@@ -2,7 +2,7 @@
 	name = Chris Boyle
 	email = chris@bbck.net
 [core]
-	excludesfile = /home/chris/.gitignore
+	excludesfile = ~/.gitignore
 	editor = mate -w
 [color]
 	ui = auto
