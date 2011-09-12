@@ -1,0 +1,3 @@
+set completion-ignore-case on
+set mark-directories on
+set mark-symlinked-directories on
