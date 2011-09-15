@@ -4,5 +4,9 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = mate -w
+	autocrlf = input
+	whitespace=trailing-space,cr-at-eol
 [color]
 	ui = auto
+[push]
+  default = current
