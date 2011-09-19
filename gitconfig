@@ -1,12 +1,12 @@
 [user]
-	name = Chris Boyle
-	email = chris@bbck.net
+  name = Chris Boyle
+  email = chris@bbck.net
 [core]
-	excludesfile = ~/.gitignore
-	editor = mate -w
-	autocrlf = input
-	whitespace=trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
+  editor = mate -w
+  autocrlf = input
+  whitespace = trailing-space,cr-at-eol
 [color]
-	ui = auto
+  ui = auto
 [push]
   default = current
