@@ -13,5 +13,8 @@ alias mv="mv -i"
 # Long listing
 alias ll='ls -la'
 
+# Short aliases
+alias r='rails'
+
 # IRSSI screen session with reconnect
 alias irc="autossh -M 0 -o 'ServerAliveInterval 60' -o 'ServerAliveCountMax 3' -D 1080 -t ec2.bbck.net 'screen -rd'"
