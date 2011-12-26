@@ -1,0 +1,15 @@
+fontName = "Menlo"
+fontSize = 12
+
+TM_GIT = "/usr/local/bin/git"
+
+softTabs = true
+tabSize = 2
+
+[ "{README,INSTALL,LICENSE,TODO}" ]
+fileType = "text.plain"
+
+[ .git/COMMIT_EDITMSG ]
+name = "Git Commit Message"
+spellChecking = true
+spellingLanguage = "en"
