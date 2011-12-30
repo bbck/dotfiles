@@ -15,6 +15,7 @@ alias ll='ls -la'
 
 # Short aliases
 alias r='rails'
+alias t='todo.sh'
 
 # Pretty JSON and XML
 alias json='python -mjson.tool'
