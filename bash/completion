@@ -1,2 +1,3 @@
 source ~/.bash/completion_scripts/brew
 source ~/.bash/completion_scripts/git
+source ~/.bash/completion_scripts/todo
