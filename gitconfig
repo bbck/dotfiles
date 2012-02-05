@@ -12,3 +12,5 @@
   default = current
 [alias]
   co = checkout
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
