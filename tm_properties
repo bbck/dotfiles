@@ -10,6 +10,7 @@ tabSize = 2
 fileType = "text.plain"
 
 [ .git/COMMIT_EDITMSG ]
-name = "Git Commit Message"
+#windowTitle = "$TM_DISPLAYNAME – $TM_DIRECTORY"
+windowTitle = "Git Commit Message"
 spellChecking = true
 spellingLanguage = "en"
