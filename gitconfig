@@ -3,7 +3,7 @@
   email = chris@bbck.net
 [core]
   excludesfile = ~/.gitignore
-  editor = mate -w
+  editor = subl -w
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
 [color]
