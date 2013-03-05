@@ -2,7 +2,7 @@
   name = Chris Boyle
   email = chris@bbck.net
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = /opt/boxen/config/git/gitignore
   editor = subl -w
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
@@ -20,3 +20,9 @@
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
 	autocorrect = 10
+
+[hub]
+protocol = https
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
