@@ -1,5 +1,5 @@
 # Quick cd to project directory
-function c { cd ~/Dropbox/repos/$1; }
+function c { cd ~/Developer/$1; }
 
 # Color aliases
 alias ls='ls -G'
