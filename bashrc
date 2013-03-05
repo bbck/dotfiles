@@ -1,7 +1,7 @@
 source ~/.bash/aliases
+source ~/.bash/boxen
 source ~/.bash/completion
 source ~/.bash/prompt
-source ~/.bash/rbenv
 
 # Use a .localrc for system specific settings
 if [ -f ~/.localrc ]; then
