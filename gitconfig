@@ -3,7 +3,7 @@
   email = chris@bbck.net
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
-  editor = subl -w
+  editor = vim
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
 [color]
