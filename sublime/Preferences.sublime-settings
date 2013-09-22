@@ -1,11 +1,18 @@
 {
 	"color_scheme": "Packages/Color Scheme - Default/Solarized (Light).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
-  "trim_trailing_white_space_on_save": true,
-  "tab_size": 2,
-  "theme": "Soda Light.sublime-theme",
-  "translate_tabs_to_spaces": true,
-  "highlight_modified_tabs": true,
-  "rulers": [ 80 ],
-  "show_minimap": false
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"show_minimap": false,
+	"tab_size": 2,
+	"theme": "Soda Light.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true
 }
