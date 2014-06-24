@@ -3,7 +3,7 @@ syntax on
 filetype plugin indent on
 
 set background=light
-colorscheme solarized
+colorscheme Tomorrow-Night
 
 set number
 set tabstop=2
