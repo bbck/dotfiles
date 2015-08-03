@@ -1,0 +1,14 @@
+"*":
+  welcome:
+    showOnStartup: false
+  "merge-conflicts": {}
+  core:
+    projectHome: "~/Developer"
+    disabledPackages: [
+      "metrics"
+      "exception-reporting"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
