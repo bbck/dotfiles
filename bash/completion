@@ -1,2 +1,2 @@
-source ~/.bash/completion_scripts/brew
-source ~/.bash/completion_scripts/git
+source $(brew --prefix)/Library/Contributions/brew_bash_completion.sh
+source $(brew --prefix)/etc/bash_completion.d/git-completion.bash
