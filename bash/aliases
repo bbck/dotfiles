@@ -11,7 +11,7 @@ alias cp="cp -i"
 alias mv="mv -i"
 
 # Long listing
-alias ll='ls -la'
+alias ll='ls -lah'
 
 # Short aliases
 alias r='rails'
