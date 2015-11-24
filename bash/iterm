@@ -58,7 +58,7 @@ if ( [ x"$TERM" != xscreen ] ); then
       # and have iterm2_prompt_prefix set a global variable that tells precmd not to
       # output anything and have iterm2_prompt_suffix reset that variable.
       # Unfortunately, command substitutions run in subshells and can't
-      # communicate to the outside world. 
+      # communicate to the outside world.
       # Instead, we have this workaround. We save the original value of PS1 in
       # $orig_ps1. Then each time this function is run (it's called from
       # PROMPT_COMMAND just before the prompt is shown) it will change PS1 to a
@@ -175,7 +175,8 @@ if ( [ x"$TERM" != xscreen ] ); then
         # If there's a trailing semicolon folowed by spaces, remove it (issue 3358).
         PROMPT_COMMAND="$(echo -n $PROMPT_COMMAND | sed -e 's/; *$//'); iterm2_preexec_invoke_cmd";
       fi
-      trap 'iterm2_preexec_invoke_exec' DEBUG;
+      # The $_ is ignored, but prevents it from changing (issue 3932).
+      trap 'iterm2_preexec_invoke_exec "$_"' DEBUG;
   }
 
   # -- begin iTerm2 customization
@@ -191,8 +192,10 @@ if ( [ x"$TERM" != xscreen ] ); then
   # Runs after interactively edited command but before execution
   function preexec() {
     iterm2_begin_osc
-    printf "133;C"
+    printf "133;C;\r"
     iterm2_end_osc
+    # Reset PS1 back to its original value so scripts can change it.
+    export PS1="$orig_ps1"
   }
 
   function iterm2_print_state_data() {
