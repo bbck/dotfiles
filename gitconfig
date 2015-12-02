@@ -1,6 +1,6 @@
 [user]
   name = Chris Boyle
-  email = chris@bbck.net
+  email = chris.boyle@enernoc.com
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
   editor = vim
