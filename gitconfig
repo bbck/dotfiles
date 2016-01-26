@@ -10,6 +10,8 @@
   ui = auto
 [push]
   default = current
+[pull]
+  rebase = true
 [alias]
   co = checkout
   cp = cherry-pick -x
