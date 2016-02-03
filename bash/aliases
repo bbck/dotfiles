@@ -20,3 +20,6 @@ alias bi='bundle install --binstubs'
 # Pretty JSON and XML
 alias json='python -mjson.tool'
 alias xml='xmllint --format -'
+
+# Implement shuf command on OS X
+alias shuf="ruby -e 'puts ARGF.readlines.shuffle'"
