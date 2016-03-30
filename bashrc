@@ -1,6 +1,7 @@
 source ~/.bash/aliases
 source ~/.bash/boxen
 source ~/.bash/completion
+source ~/.bash/exports
 source ~/.bash/prompt
 
 # Use a .localrc for system specific settings

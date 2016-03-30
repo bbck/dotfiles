@@ -1,0 +1,4 @@
+export EDITOR=vim
+export HISTCONTROL=ignoreboth
+export HISTFILESIZE=32768
+export HISTSIZE=32768
