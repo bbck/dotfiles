@@ -16,6 +16,7 @@ alias ll='ls -lah'
 # Short aliases
 alias r='rails'
 alias bi='bundle install --binstubs'
+alias a='atom .'
 
 # Pretty JSON and XML
 alias json='python -mjson.tool'
