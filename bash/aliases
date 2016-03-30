@@ -26,4 +26,4 @@ alias xml='xmllint --format -'
 alias shuf="ruby -e 'puts ARGF.readlines.shuffle'"
 
 # Flush DNS cache on OS X
-alias flush="sudo killall -HUP mDNSResponder"
+alias flush='sudo killall -HUP mDNSResponder'
