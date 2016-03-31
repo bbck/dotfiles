@@ -27,3 +27,6 @@ alias shuf="ruby -e 'puts ARGF.readlines.shuffle'"
 
 # Flush DNS cache on OS X
 alias flush='sudo killall -HUP mDNSResponder'
+
+# Print latest version of a cookbook on chef server
+function cver { knife cookbook show $1 | awk '{print $2}'; }
