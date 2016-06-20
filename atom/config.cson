@@ -1,14 +1,18 @@
 "*":
-  welcome:
-    showOnStartup: false
-  "merge-conflicts": {}
   core:
-    projectHome: "~/Developer"
     disabledPackages: [
       "metrics"
       "exception-reporting"
     ]
+    projectHome: "~/Developer"
   editor:
     invisibles: {}
     showIndentGuide: true
     softWrap: true
+  "linter-puppet-lint":
+    oldVersion: false
+  "linter-rubocop":
+    command: "/Users/chris.boyle/.gem/ruby/2.3.1/bin/rubocop"
+  "merge-conflicts": {}
+  welcome:
+    showOnStartup: false
