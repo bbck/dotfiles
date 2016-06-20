@@ -19,6 +19,7 @@
   st = status --short --branch
   amend = commit --amend -C HEAD
   undo = reset --soft HEAD^
+  pp = !git pull && git push
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
