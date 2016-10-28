@@ -2,6 +2,7 @@ source ~/.bash/prompt
 source ~/.bash/iterm2
 source ~/.bash/aliases
 source ~/.bash/boxen
+source ~/.bash/chruby
 source ~/.bash/completion
 source ~/.bash/exports
 
