@@ -24,11 +24,5 @@
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
 	autocorrect = 10
-
-[hub]
-protocol = https
-
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
 [commit]
   verbose = true
