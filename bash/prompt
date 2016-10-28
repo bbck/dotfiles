@@ -1,6 +1,6 @@
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
   PS1='\[\033[G\]\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[37;33m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
+else
+  PS1='\[\033[G\]\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[37;33m\]\[\e[0m\] \$ '
 fi
-
-PS1='\[\033[G\]\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[37;33m\]\[\e[0m\] \$ '
