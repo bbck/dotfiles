@@ -3,7 +3,6 @@
   email = chris@bbck.net
 	signingkey = D8FCFA56
 [core]
-  excludesfile = /opt/boxen/config/git/gitignore
   editor = vim
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
