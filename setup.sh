@@ -8,6 +8,10 @@ for file in *; do
   if [[ "${file}" == "setup.sh" ]]; then
     continue
   fi
+  # Skip README
+  if [[ "${file}" == "README.md" ]]; then
+    continue
+  fi
   rm -rf ${HOME}/.${file}
   ln -s ${HOME}/Developer/dotfiles/${file} ${HOME}/.${file}
 done
