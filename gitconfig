@@ -1,7 +1,7 @@
 [user]
   name = Chris Boyle
   email = chris@bbck.net
-	signingkey = D8FCFA56
+  signingkey = D8FCFA56
 [core]
   editor = vim
   autocrlf = input
@@ -22,6 +22,6 @@
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
-	autocorrect = 10
+  autocorrect = 10
 [commit]
   verbose = true
