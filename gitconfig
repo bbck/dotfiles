@@ -1,6 +1,6 @@
 [user]
   name = Chris Boyle
-  email = chris.boyle@enernoc.com
+  email = chris@bbck.net
 	signingkey = D8FCFA56
 [core]
   excludesfile = /opt/boxen/config/git/gitignore
