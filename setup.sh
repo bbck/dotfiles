@@ -23,3 +23,13 @@ for ruby in "ruby-2.3.3" "ruby-1.9.3-p551" "jruby-1.7.12"; do
     ruby-install ${ruby}
   fi
 done
+
+# Atom packages
+packages=(
+  busy-signal
+  intentions
+  linter
+  linter-rubocop
+  linter-ui-default
+)
+apm install "${packages[@]}"
