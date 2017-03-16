@@ -1,31 +1,14 @@
 "*":
-  "atom-beautify":
-    general:
-      _analyticsUserId: "47407761-bd57-4b95-9ec4-e4e1e0c634d9"
-    json:
-      brace_style: "end-expand"
   core:
     disabledPackages: [
       "metrics"
       "exception-reporting"
     ]
     projectHome: "~/Developer"
+    telemetryConsent: "limited"
   editor:
     invisibles: {}
     showIndentGuide: true
     softWrap: true
-  linter: {}
-  "linter-erb":
-    erbExecutablePath: "/opt/rubies/2.3.1/bin/erb"
-    rubyExecutablePath: "/opt/rubies/2.3.1/bin/ruby"
-  "linter-puppet-lint":
-    executablePath: "/Users/chris.boyle/.gem/ruby/2.3.1/bin/puppet-lint"
-    oldVersion: false
-  "linter-rubocop":
-    command: "/Users/chris.boyle/.gem/ruby/2.3.1/bin/rubocop"
-  "linter-shellcheck": {}
-  "merge-conflicts": {}
-  "tree-view":
-    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
