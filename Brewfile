@@ -37,4 +37,4 @@ cask 'transmit'
 cask 'vagrant'
 cask 'virtualbox'
 
-mas 'Pixelmator', id: 407963104
+mas 'Pixelmator', id: 407963104 if `mas account`.chomp == 'chris@bbck.net'
