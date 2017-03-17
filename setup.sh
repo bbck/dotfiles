@@ -22,6 +22,7 @@ if [[ ! -x /usr/local/bin/brew ]]; then
 fi
 
 # Install homebrew packages
+brew install mas
 brew bundle --global
 
 # Install rubies
