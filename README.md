@@ -9,4 +9,4 @@ My personal dotfiles for both my home and work laptops.
 ## Issues and workarounds
 
 ### How to change the default git email
-Set `GIT_COMMITTER_EMAIL` in `.localrc` 
+Set `GIT_AUTHOR_EMAIL` and `GIT_COMMITTER_EMAIL` in `.localrc` 
