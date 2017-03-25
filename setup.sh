@@ -36,7 +36,9 @@ done
 # Atom packages
 packages=(
   busy-signal
+  file-icons
   intentions
+  language-terraform
   linter
   linter-rubocop
   linter-ui-default
