@@ -7,8 +7,16 @@
     projectHome: "~/Developer"
     telemetryConsent: "limited"
   editor:
+    fontSize: 13
     invisibles: {}
+    preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
+  "linter-rubocop":
+    executablePath: "~/.gem/ruby/2.3.3/bin/rubocop"
+  "linter-ui-default": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
   welcome:
     showOnStartup: false
