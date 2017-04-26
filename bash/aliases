@@ -13,6 +13,12 @@ alias mv="mv -i"
 # Long listing
 alias ll='ls -lah'
 
+# bundle exec aliases
+alias rails="bundle exec rails"
+alias rake="bundle exec rake"
+alias kitchen="bundle exec kitchen"
+alias knife="bundle exec knife"
+
 # Short aliases
 alias r='rails'
 alias bi='bundle install --binstubs'
