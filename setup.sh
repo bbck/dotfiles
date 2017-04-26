@@ -41,6 +41,7 @@ packages=(
   language-terraform
   linter
   linter-rubocop
+  linter-terraform-syntax
   linter-ui-default
 )
 apm install "${packages[@]}"
