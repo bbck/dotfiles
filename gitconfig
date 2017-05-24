@@ -19,6 +19,7 @@
   amend = commit --amend -C HEAD
   undo = reset --soft HEAD^
   pp = !git pull && git push
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
