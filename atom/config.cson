@@ -1,4 +1,7 @@
 "*":
+  "ansible-vault":
+    vault_password_file_flag: true
+    vault_password_file_path: "~/.ansible_vault_key"
   core:
     disabledPackages: [
       "metrics"

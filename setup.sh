@@ -35,11 +35,14 @@ done
 
 # Atom packages
 packages=(
+  ansible-vault
   busy-signal
   file-icons
   intentions
+  language-ansible
   language-terraform
   linter
+  linter-ansible-linting
   linter-rubocop
   linter-terraform-syntax
   linter-ui-default
