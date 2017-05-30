@@ -26,7 +26,7 @@ brew install mas
 brew bundle --global
 
 # Install rubies
-rubies=(ruby-1.9.3-p551 ruby-2.3.3 jruby-1.7.12)
+rubies=(ruby-1.9.3-p551 ruby-2.3.4 ruby-2.4.1 jruby-1.7.12 jruby-9.1.10.0)
 for ruby in "${rubies[@]}"; do
   if [[ ! -d ${HOME}/.rubies/${ruby} ]]; then
     ruby-install ${ruby}
