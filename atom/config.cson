@@ -16,7 +16,7 @@
     showIndentGuide: true
     softWrap: true
   "linter-rubocop":
-    executablePath: "~/.gem/ruby/2.3.3/bin/rubocop"
+    executablePath: "~/.gem/ruby/2.3.4/bin/rubocop"
   "linter-ui-default": {}
   "tree-view":
     hideVcsIgnoredFiles: true
