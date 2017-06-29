@@ -49,3 +49,16 @@ function asgssh() {
   fi
   ssh `aws-vault exec $AWS_DEFAULT_PROFILE --  aws ec2 describe-instances --filters "Name=tag:aws:autoscaling:groupName,Values=$1" "Name=instance-state-name,Values=running" | jq -r .Reservations[0].Instances[$INDEX].PrivateIpAddress` $2 $3 $4 $5 $6 $7 $8 $9
 }
+
+# AWS account switch
+function awsacct() {
+  export AWS_DEFAULT_PROFILE=$1
+  awsacct_alias_tools
+}
+
+awsacct_tools=(aws kitchen packer pry terraform)
+function awsacct_alias_tools() {
+  for i in ${awsacct_tools[@]}; do
+    alias $i="aws-vault exec $AWS_DEFAULT_PROFILE -- $i"
+  done
+}
