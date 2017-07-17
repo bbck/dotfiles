@@ -41,7 +41,7 @@ function cver { knife cookbook show $1 | awk '{print $2}'; }
 
 # SSH to AWS by name
 function ec2ssh() {
-  ssh `aws-vault exec $AWS_DEFAULT_PROFILE -- aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" | jq -r .Reservations[0].Instances[0].PrivateIpAddress` $2 $3 $4 $5 $6 $7 $8 $9
+  ssh `aws-vault exec $AWS_DEFAULT_PROFILE -- aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" "Name=instance-state-name,Values=running" | jq -r .Reservations[0].Instances[0].PrivateIpAddress` $2 $3 $4 $5 $6 $7 $8 $9
 }
 
 function asgssh() {
