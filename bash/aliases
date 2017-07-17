@@ -24,6 +24,7 @@ alias r='rails'
 alias bi='bundle install --binstubs'
 alias a='atom .'
 alias aa='atom -a .'
+alias tf='terraform'
 
 # Pretty JSON and XML
 alias json='python -mjson.tool'
