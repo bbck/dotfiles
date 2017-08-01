@@ -60,6 +60,6 @@ function awsacct() {
 awsacct_tools=(aws kitchen kops packer pry terraform)
 function awsacct_alias_tools() {
   for i in ${awsacct_tools[@]}; do
-    alias $i="aws-vault exec $AWS_DEFAULT_PROFILE -- $i"
+    alias $i="aws-vault exec --assume-role-ttl=60m $AWS_DEFAULT_PROFILE -- $i"
   done
 }
