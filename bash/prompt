@@ -1,6 +1,12 @@
+function awsacct_prompt() {
+  if [ "$AWS_DEFAULT_PROFILE" != "default" ]; then
+    echo " (${AWS_DEFAULT_PROFILE})"
+  fi
+}
+
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-  PS1='\[\033[G\]\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[37;33m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
+  PS1='\e[1m\u@\h\e[0m \w\e[96m$(awsacct_prompt)\e[33m$(__git_ps1 " (%s)")\e[39m \$ '
 else
-  PS1='\[\033[G\]\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[37;33m\]\[\e[0m\] \$ '
+  PS1='\e[1m\u@\h\e[0m \w\e[96m$(awsacct_prompt)\e[39m \$ '
 fi
