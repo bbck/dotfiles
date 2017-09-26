@@ -13,6 +13,7 @@
 [pull]
   rebase = true
 [alias]
+  git = !exec git
   co = checkout
   cp = cherry-pick -x
   st = status --short --branch
