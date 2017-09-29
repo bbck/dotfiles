@@ -54,10 +54,18 @@ function asgssh() {
 # AWS account switch
 function awsacct() {
   export AWS_DEFAULT_PROFILE=$1
+
+  # export any account vars in ~/.aws/env.d
+  if [ -f "$HOME/.aws/env.d/$1" ]; then
+    set -a
+    source $HOME/.aws/env.d/$1
+    set +a
+  fi
+
   awsacct_alias_tools
 }
 
-awsacct_tools=(aws kitchen kops packer pry terraform)
+awsacct_tools=(aws kops packer pry terraform)
 function awsacct_alias_tools() {
   for i in ${awsacct_tools[@]}; do
     alias $i="aws-vault exec --assume-role-ttl=60m $AWS_DEFAULT_PROFILE -- $i"
