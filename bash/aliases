@@ -19,6 +19,9 @@ alias rake="bundle exec rake"
 alias kitchen="bundle exec kitchen"
 alias knife="bundle exec knife"
 
+# Switch to ruby version in projects
+function crb { chruby $(cat .ruby-version); }
+
 # Short aliases
 alias r='rails'
 alias bi='bundle install --binstubs'
