@@ -15,8 +15,15 @@
     preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
+  "linter-cookstyle":
+    command: "/usr/local/bin/chruby-exec 2.3.4 -- cookstyle"
   "linter-rubocop":
     command: "/usr/local/bin/chruby-exec 2.3.4 -- rubocop"
+  "linter-terraform-syntax":
+    terraformExecutablePath: "/usr/local/bin/terraform"
+  "linter-ui-default": {}
+  "markdown-preview":
+    useGitHubStyle: true
   "tree-view":
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
