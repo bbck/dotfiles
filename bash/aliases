@@ -68,7 +68,7 @@ function awsacct() {
   awsacct_alias_tools
 }
 
-awsacct_tools=(aws kops packer pry terraform)
+awsacct_tools=(aws helm kops kubectl packer pry terraform)
 function awsacct_alias_tools() {
   for i in ${awsacct_tools[@]}; do
     alias $i="aws-vault exec --assume-role-ttl=60m $AWS_DEFAULT_PROFILE -- $i"
