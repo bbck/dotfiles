@@ -9,8 +9,11 @@
     ]
     projectHome: "~/Developer"
     telemetryConsent: "limited"
+    themes: [
+      "one-light-ui"
+      "solarized-light-syntax"
+    ]
   editor:
-    fontSize: 13
     invisibles: {}
     preferredLineLength: 120
     showIndentGuide: true
@@ -24,6 +27,7 @@
   "linter-ui-default": {}
   "markdown-preview":
     useGitHubStyle: true
+  "one-light-ui": {}
   "tree-view":
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
