@@ -1,6 +1,9 @@
 # Quick cd to project directory
 function c { cd ~/Developer/$1; }
 
+# Search bash history
+alias h='history | grep '
+
 # Color aliases
 alias ls='ls -G'
 alias grep='grep --colour=auto'

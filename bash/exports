@@ -2,5 +2,6 @@ export EDITOR=vim
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=32768
 export HISTSIZE=32768
+export HISTIGNORE="h *"
 export AWS_DEFAULT_PROFILE=default
 export AWS_DEFAULT_REGION=us-east-1
