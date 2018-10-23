@@ -1,4 +1,7 @@
-colorscheme Tomorrow-Night
+call pathogen#infect()
+
+colorscheme solarized
+set background=light
 syntax enable
 
 set tabstop=2
@@ -11,5 +14,3 @@ set cursorline
 filetype indent on
 set lazyredraw
 set showmatch
-
-call pathogen#infect()
