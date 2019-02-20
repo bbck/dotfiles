@@ -4,8 +4,16 @@ function awsacct_prompt() {
   fi
 }
 
+function tab_title() {
+  if $(git rev-parse --is-inside-work-tree 2>/dev/null); then
+    basename $(git rev-parse --show-toplevel)
+  else
+    basename $(pwd)
+  fi
+}
+
 if [ $ITERM_SESSION_ID ]; then
-  export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
+  export PROMPT_COMMAND='echo -ne "\033];$(tab_title)\007"; ':"$PROMPT_COMMAND";
 fi
 
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
