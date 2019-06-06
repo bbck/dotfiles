@@ -1,3 +1,4 @@
+source ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
 source ~/.bash/prompt
 source ~/.bash/iterm2
 source ~/.bash/aliases
