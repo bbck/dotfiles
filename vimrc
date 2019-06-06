@@ -1,6 +1,6 @@
 call pathogen#infect()
 
-colorscheme solarized
+colorscheme gruvbox
 set background=light
 syntax enable
 
