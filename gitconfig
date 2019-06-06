@@ -6,6 +6,7 @@
   editor = vim
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore
 [color]
   ui = auto
 [push]
