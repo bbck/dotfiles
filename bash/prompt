@@ -22,3 +22,10 @@ if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
 else
   PS1='\[\e[1m\]\u@\h\[\e[0m\] \w\[\e[96m\]$(awsacct_prompt)\[\e[39m\] \$ '
 fi
+
+# Manage bash history
+# https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
+precmd_functions+=("history -n")
+precmd_functions+=("history -w")
+precmd_functions+=("history -c")
+precmd_functions+=("history -r")
