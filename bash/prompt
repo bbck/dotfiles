@@ -6,15 +6,32 @@ function awsacct_prompt() {
 
 function tab_title() {
   if $(git rev-parse --is-inside-work-tree 2>/dev/null); then
-    basename $(git rev-parse --show-toplevel)
+    echo -ne "\033];$(basename $(git rev-parse --show-toplevel))\007";
   else
-    basename $(pwd)
+    echo -ne "\033];$(basename $(pwd))\007";
   fi
 }
 
-if [ $ITERM_SESSION_ID ]; then
-  export PROMPT_COMMAND='echo -ne "\033];$(tab_title)\007";'
-fi
+function current_ruby() {
+  echo "${RUBY_ROOT##*/}"
+}
+
+function current_k8s_context() {
+  kubectl config current-context
+}
+
+function current_awsacct() {
+  echo "${AWS_DEFAULT_PROFILE}"
+}
+
+# See https://www.iterm2.com/3.3/documentation-scripting-fundamentals.html
+function iterm2_print_user_vars() {
+  iterm2_set_user_var rubyVersion $(current_ruby)
+  iterm2_set_user_var k8sContext $(current_k8s_context)
+  iterm2_set_user_var awsAccount $(current_awsacct)
+}
+
+precmd_functions+=(tab_title)
 
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   source $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
