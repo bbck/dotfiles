@@ -42,7 +42,6 @@ fi
 
 # Manage bash history
 # https://unix.stackexchange.com/questions/18212/bash-history-ignoredups-and-erasedups-setting-conflict-with-common-history
-precmd_functions+=("history -n")
-precmd_functions+=("history -w")
-precmd_functions+=("history -c")
-precmd_functions+=("history -r")
+function save_history() { history -n; history -w; history -c; history -r; }
+shopt -s histappend
+precmd_functions+=(save_history)
