@@ -45,3 +45,7 @@ fi
 function save_history() { history -n; history -w; history -c; history -r; }
 shopt -s histappend
 precmd_functions+=(save_history)
+
+if [ -f $HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh ]; then
+  source $HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh
+fi

@@ -1,11 +1,6 @@
-source ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
-source ~/.bash/prompt
-source ~/.bash/aliases
-source ~/.bash/chruby
-source ~/.bash/fzf
-source ~/.bash/completion
-source ~/.bash/exports
-source ~/.bash/iterm2
+for f in $HOME/.bash/*.sh; do
+  source "$f"
+done
 
 # Use a .localrc for system specific settings
 if [ -f ~/.localrc ]; then
