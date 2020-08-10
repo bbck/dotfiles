@@ -8,7 +8,7 @@ fi
 _fzf_complete_c() {
   FZF_COMPLETION_TRIGGER=''
   _fzf_complete "--multi --reverse" "$@" < <(
-    ls ~/Developer
+    find "$HOME/Developer" -maxdepth 2 -mindepth 2 -type d -exec basename {} \;
   )
 }
 
