@@ -59,24 +59,3 @@ function asgssh() {
   fi
   ssh `aws-vault exec $AWS_DEFAULT_PROFILE --  aws ec2 describe-instances --filters "Name=tag:aws:autoscaling:groupName,Values=$1" "Name=instance-state-name,Values=running" | jq -r .Reservations[0].Instances[$INDEX].PrivateIpAddress` $2 $3 $4 $5 $6 $7 $8 $9
 }
-
-# AWS account switch
-function awsacct() {
-  export AWS_DEFAULT_PROFILE=$1
-
-  # export any account vars in ~/.aws/env.d
-  if [ -f "$HOME/.aws/env.d/$1" ]; then
-    set -a
-    source $HOME/.aws/env.d/$1
-    set +a
-  fi
-
-  awsacct_alias_tools
-}
-
-awsacct_tools=(ansible ansible-playbook aws eksctl kops packer pry terraform)
-function awsacct_alias_tools() {
-  for i in ${awsacct_tools[@]}; do
-    alias $i="aws-vault exec --assume-role-ttl=60m $AWS_DEFAULT_PROFILE -- $i"
-  done
-}
