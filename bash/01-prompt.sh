@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function awsacct_prompt() {
   if [ "$AWS_DEFAULT_PROFILE" != "default" ]; then
     echo " (${AWS_DEFAULT_PROFILE})"

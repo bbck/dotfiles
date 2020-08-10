@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Quick cd to project directory
 function c { cd ~/Developer/$1; }
 
