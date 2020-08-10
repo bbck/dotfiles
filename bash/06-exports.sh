@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export EDITOR=vim
 export HISTCONTROL=ignoreboth:erasedups
 export HISTFILESIZE=32768
