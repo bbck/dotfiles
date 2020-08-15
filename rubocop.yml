@@ -1,5 +1,0 @@
-LineLength:
-  Enabled: true
-  Max: 120
-Style/NumericLiterals:
-  Enabled: false

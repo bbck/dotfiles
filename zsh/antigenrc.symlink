@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+if [ -f /usr/local/share/antigen/antigen.zsh ]; then
+  source /usr/local/share/antigen/antigen.zsh
+fi
+
+antigen bundle <<EOBUNDLES
+  zsh-users/zsh-syntax-highlighting
+  zsh-users/zsh-completions
+  zsh-users/zsh-autosuggestions
+EOBUNDLES
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply

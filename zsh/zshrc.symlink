@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+# zmodload zsh/zprof
+
+export PROJECTS="$HOME/Developer"
+export DOTFILES="$PROJECTS/bbck/dotfiles"
+
+# p10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# default editor
+export EDITOR='vim'
+export VEDITOR='code'
+
+# load plugins
+source ~/.antigenrc
+
+# source everything in topic folders
+for f in $DOTFILES/*/*.zsh; do
+  source "$f"
+done
+
+# for machine specific config
+[ -f ~/.localrc ] && . ~/.localrc
+
+# zprof
