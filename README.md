@@ -2,14 +2,11 @@
 My personal dotfiles for ZSH
 
 ## Installing
-1. Clone into `~/Developer/bbck/dotfiles`
-2. Run the `install.sh` script
-3. Add any machine-specific changes to `.localrc`
-
-## Issues and workarounds
-
-### How to configure git user settings
-Set `GIT_AUTHOR_EMAIL` and `GIT_COMMITTER_EMAIL` in `.localrc`
+```
+git clone https://github.com/bbck/dotfiles.git ~/Developer/bbck/dotfiles
+cd ~/Developer/bbck/dotfiles
+./install.sh
+```
 
 ## Inspiration
 Credit to other dotfiles repos that have influenced this one

@@ -27,3 +27,5 @@
   verbose = true
 [credential]
 	helper = osxkeychain
+[include]
+  path = ~/.gitconfig-local
