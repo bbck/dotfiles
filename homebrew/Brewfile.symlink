@@ -67,7 +67,6 @@ cask 'transmit'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'visual-studio-code'
-cask 'zoom'
 
 mas 'AdGuard for Safari', id: 1440147259
 mas 'Bear', id: 1091189122
