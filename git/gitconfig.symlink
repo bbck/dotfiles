@@ -25,6 +25,7 @@
   autocorrect = 10
 [commit]
   verbose = true
+  gpgsign = true
 [credential]
 	helper = osxkeychain
 [include]
