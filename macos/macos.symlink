@@ -25,6 +25,13 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Hide input menu in menu bar
 defaults write com.apple.TextInputMenu visible -bool false
 
+# Disable automatic typing correction
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
 # Show Spotlight Search hotkey Option+Space
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "
   <dict>
@@ -42,8 +49,19 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "
   </dict>
 "
 
+# Increase mouse tracking speed
+defaults write NSGlobalDomain com.apple.mouse.scaling -float 1.5
+
+# Enable secondary click
+defaults write com.apple.driver.AppleBluetoothMultitouch.mouse MouseButtonMode -string "TwoButton"
+
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Use DuckDuckGo for web searches
+defaults write NSGlobalDomain NSWebServicesProviderWebSearch -dict \
+  NSDefaultDisplayName -string "DuckDuckGo" \
+  NSProviderIdentifier - string "com.duckduckgo"
 
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
