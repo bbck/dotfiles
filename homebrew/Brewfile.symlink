@@ -43,6 +43,7 @@ brew 'shellcheck'
 brew 'terraform-docs'
 brew 'tflint'
 brew 'vault'
+brew 'yh'
 brew 'ykman'
 
 brew 'fluxcd/tap/flux'
