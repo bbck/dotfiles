@@ -4,7 +4,7 @@ alias k='kubectl'
 alias kx='kubectx'
 alias kn='kubens'
 
-kj() { kubectl "$@" -o yaml | yh; }
+kj() { kubectl "$@" -o yaml | jq; }
 ky() { kubectl "$@" -o yaml | yh; }
 compdef kj=kubectl
 compdef ky=kubectl

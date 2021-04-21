@@ -14,13 +14,17 @@ fi
 export EDITOR='vim'
 export VEDITOR='code'
 
-# load plugins
-source ~/.antigenrc
+# zsh autocompletion
+autoload -Uz compinit
+compinit
 
 # source everything in topic folders
 for f in $DOTFILES/*/*.zsh; do
   source "$f"
 done
+
+# load plugins
+source ~/.antigenrc
 
 # for machine specific config
 [ -f ~/.localrc ] && . ~/.localrc
