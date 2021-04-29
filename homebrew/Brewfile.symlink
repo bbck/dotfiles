@@ -1,3 +1,5 @@
+# vi:syntax=ruby
+
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
@@ -39,6 +41,7 @@ brew 'mas'
 brew 'nmap'
 brew 'opa'
 brew 'packer'
+brew 'pulumi'
 brew 'shellcheck'
 brew 'terraform-docs'
 brew 'tflint'
