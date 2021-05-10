@@ -19,7 +19,7 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # Source local topic folders
-zplug "$DOTFILES/*/*.zsh", from:local
+zplug "$DOTFILES/**/*.zsh", from:local
 
 # Source external plugins
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -35,7 +35,7 @@ if ! zplug check; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load
 
 # for machine specific config
 [ -f ~/.localrc ] && . ~/.localrc
