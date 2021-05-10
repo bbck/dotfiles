@@ -14,17 +14,28 @@ fi
 export EDITOR='vim'
 export VEDITOR='code'
 
-# zsh autocompletion
-autoload -Uz compinit
-compinit
+# Load zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# source everything in topic folders
-for f in $DOTFILES/*/*.zsh; do
-  source "$f"
-done
+# Source local topic folders
+zplug "$DOTFILES/*/*.zsh", from:local
 
-# load plugins
-source ~/.antigenrc
+# Source external plugins
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+
+# p10k
+zplug 'romkatv/powerlevel10k', as:theme
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+    zplug install
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
 
 # for machine specific config
 [ -f ~/.localrc ] && . ~/.localrc
