@@ -5,11 +5,6 @@
 export PROJECTS="$HOME/Developer"
 export DOTFILES="$PROJECTS/bbck/dotfiles"
 
-# p10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # default editor
 export EDITOR='vim'
 export VEDITOR='code'
@@ -26,9 +21,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 
-# p10k
-zplug 'romkatv/powerlevel10k', as:theme
-
 # Install plugins if there are plugins that have not been installed
 if ! zplug check; then
     zplug install
@@ -36,6 +28,8 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+eval "$(starship init zsh)"
 
 # for machine specific config
 [ -f ~/.localrc ] && . ~/.localrc

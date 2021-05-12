@@ -1,0 +1,4 @@
+# vi:syntax=toml
+
+[kubernetes]
+disabled = false
