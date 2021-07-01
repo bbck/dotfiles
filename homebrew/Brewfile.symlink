@@ -83,6 +83,7 @@ cask 'visual-studio-code'
 
 mas 'AdGuard for Safari', id: 1440147259
 mas 'Bear', id: 1091189122
+mas 'Magnet', id: 441258766
 mas 'Microsoft Excel', id: 462058435
 mas 'Microsoft OneNote', id: 784801555
 mas 'Microsoft Outlook', id: 985367838
