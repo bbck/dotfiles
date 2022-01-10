@@ -50,7 +50,7 @@ brew 'fluxcd/tap/flux'
 brew 'go-task/tap/go-task'
 brew 'hashicorp/tap/terraform-ls'
 
-cask '1password'
+cask '1password-beta'
 cask '1password-cli'
 cask 'alfred'
 cask 'aws-vault'
@@ -67,6 +67,7 @@ cask 'transmit'
 cask 'vagrant'
 cask 'visual-studio-code'
 
+mas '1Password for Safari', id: 1569813296
 mas 'AdGuard for Safari', id: 1440147259
 mas 'Bear', id: 1091189122
 mas 'Magnet', id: 441258766
