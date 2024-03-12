@@ -3,8 +3,8 @@ My personal dotfiles for ZSH
 
 ## Installing
 ```
-git clone https://github.com/bbck/dotfiles.git ~/Developer/bbck/dotfiles
-cd ~/Developer/bbck/dotfiles
+git clone https://github.com/bbck/dotfiles.git ~/Developer/dotfiles
+cd ~/Developer/dotfiles
 ./install.sh
 ```
 
