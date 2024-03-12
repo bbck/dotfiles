@@ -1,4 +1,4 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # homebrew completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-fi
+export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

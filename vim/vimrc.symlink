@@ -1,24 +1,5 @@
-" Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
-
-" Run PlugInstall if there are missing plugins
-autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
-
-" The plugins
-call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-sensible'
-call plug#end()
-
-" Other misc configuration
 set tabstop=2     " number of columns occupied by a tab character
 set softtabstop=2 " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab     " converts tabs to white space
 set shiftwidth=2  " width for autoindents
 set number        " add line numbers
-set cc=80         " set an 80 column border for good coding style

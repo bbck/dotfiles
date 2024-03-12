@@ -1,0 +1,88 @@
+# Change prefix to Ctrl-a
+set -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+
+# Enable vim bindings
+set-window-option -g mode-keys vi
+
+# Disable delay switching modes
+set -s escape-time 0
+
+# Increase scrollback buffer
+set -g history-limit 50000
+
+# Show messages (pane numbers) for 4s
+set -g display-time 4000
+
+# Enable modern terminal features
+set -s default-terminal "screen-256color"
+
+# Enable focus events
+set -g focus-events on
+
+# Set terminal title
+set -g set-titles on
+set -g set-titles-string "#W - #h"
+
+# Better pane splitting
+unbind %
+bind | split-window -h -c "#{pane_current_path}"
+unbind '"'
+bind - split-window -v -c "#{pane_current_path}"
+
+# Better pane resizing
+bind -r j resize-pane -D 5
+bind -r k resize-pane -U 5
+bind -r l resize-pane -R 5
+bind -r h resize-pane -L 5
+bind -r m resize-pane -Z
+
+# Enable the mouse
+set -g mouse on
+
+# Start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Smart pane switching with awareness of Vim splits.
+# See: [https://github.com/christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+ | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?)(diff)?$'"
+bind-key -n 'C-h' if-shell "$is_vim" 'send-keys C-h' 'select-pane -L'
+bind-key -n 'C-j' if-shell "$is_vim" 'send-keys C-j' 'select-pane -D'
+bind-key -n 'C-k' if-shell "$is_vim" 'send-keys C-k' 'select-pane -U'
+bind-key -n 'C-l' if-shell "$is_vim" 'send-keys C-l' 'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+ "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\' 'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+ "bind-key -n 'C-\\' if-shell \"$is_vim\" 'send-keys C-\\\\' 'select-pane -l'"
+
+bind-key -T copy-mode-vi 'C-h' select-pane -L
+bind-key -T copy-mode-vi 'C-j' select-pane -D
+bind-key -T copy-mode-vi 'C-k' select-pane -U
+bind-key -T copy-mode-vi 'C-l' select-pane -R
+bind-key -T copy-mode-vi 'C-\' select-pane -l
+
+# Status bar
+# catppuccin theme done manually, but kanagawa
+# [https://github.com/catppuccin/tmux](https://github.com/catppuccin/tmux)
+set-option -gq status on
+set-option -gq status-bg '#1f1f28'
+set-option -gq status-justify left
+set-option -gq status-left-length 100
+set-option -gq status-right-length 100
+set-option -gq message-style fg=#72a7bc,bg=#727169,align=centre
+set-option -gq message-command-style fg=#72a7bc,bg=#727169,align=centre
+set-option -gq pane-border-style fg=#727169
+set-option -gq pane-active-border-style fg=#7e9cd8
+set-window-option -gq window-status-activity-style fg=#dcd7ba,bg=#1f1f28,none
+set-window-option -gq window-status-separator ''
+set-window-option -gq window-status-style fg=#dcd7ba,bg=#1f1f28,none
+set-option -gq status-left ''
+set-option -gq status-right '#[fg=#957fb8,bg=#1f1f28,nobold,nounderscore,noitalics]#[fg=#1f1f28,bg=#957fb8,nobold,nounderscore,noitalics]  #{b:pane_current_path} #[fg=#76946a,bg=#1f1f28,nobold,nounderscore,noitalics]#{?client_prefix,#[fg=#c34043],#[fg=#76946a]}#{?client_prefix,#[bg=#c34043],#[bg=#76946a]}#[fg=#1f1f28]  #S #{?client_prefix,#[bg=#c34043],#[bg=#76946a]}#[fg=#1f1f28]#[fg=#b8b4d0,bg=#1f1f28,nobold,nounderscore,noitalics]#[fg=#1f1f28,bg=#b8b4d0,nobold,nounderscore,noitalics] 󰒋 #H #[fg=#7e9cd8,bg=#1f1f28,nobold,nounderscore,noitalics]#[fg=#1f1f28,bg=#7e9cd8,nobold,nounderscore,noitalics]  %R '
+set-window-option -gq window-status-format '#[fg=#1f1f28,bg=#727169,nobold,noitalics,nounderscore] #[fg=#dcd7ba,bg=#727169,nobold,noitalics,nounderscore]#W  #I #[fg=#727169,bg=#1f1f28,nobold,noitalics,nounderscore]'
+set-window-option -gq window-status-current-format '#[fg=#1f1f28,bg=#7e9cd8,nobold,noitalics,nounderscore] #[fg=#1f1f28,bg=#7e9cd8,nobold,noitalics,nounderscore]#W  #I #[fg=#7e9cd8,bg=#1f1f28,nobold,noitalics,nounderscore]'
+set-window-option -gq clock-mode-colour '#7e9cd8'
+set-window-option -gq mode-style 'fg=#957fb8 bg=#727169 bold'

@@ -1,80 +1,43 @@
 # vi:syntax=ruby
 
-cask_args appdir: '/Applications'
+brew "bat"
+brew "eza"
+brew "git"
+brew "gnupg"
+brew "helm"
+brew "jq"
+brew "k9s"
+brew "kubernetes-cli"
+brew "kubectx"
+brew "mas"
+brew "neovim"
+brew "pre-commit"
+brew "shellcheck"
+brew "sops"
+brew "starship"
+brew "tmux"
+brew "ykman"
+brew "yq"
 
-tap 'homebrew/bundle'
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/core'
-tap 'homebrew/services'
+tap "fluxcd/tap"
+brew "fluxcd/tap/flux"
 
-brew 'age'
-brew 'ansible'
-brew 'ansible-lint'
-brew 'asdf'
-brew 'awscli'
-brew 'bash-completion'
-brew 'fd'
-brew 'fzf'
-brew 'gh'
-brew 'git'
-brew 'gnupg'
-brew 'go'
-brew 'helm'
-brew 'jq'
-brew 'kind'
-brew 'kubernetes-cli'
-brew 'krew'
-brew 'kubectx'
-brew 'kustomize'
-brew 'lima'
-brew 'mas'
-brew 'neofetch'
-brew 'nmap'
-brew 'pre-commit'
-brew 'pulumi'
-brew 'shellcheck'
-brew 'sops'
-brew 'starship'
-brew 'terraform-docs'
-brew 'tflint'
-brew 'yh'
-brew 'ykman'
-brew 'zplug'
+cask "1password"
+cask "1password-cli"
+cask "alfred"
+cask "dash"
+cask "discord"
+cask "iterm2"
+cask "obsidian"
 
-tap 'fluxcd/tap'
-tap 'go-task/tap'
-tap 'hashicorp/tap'
+tap "homebrew/cask-fonts"
+cask "homebrew/cask-fonts/font-fira-code-nerd-font"
 
-brew 'fluxcd/tap/flux'
-brew 'go-task/tap/go-task'
-brew 'hashicorp/tap/terraform-ls'
-
-cask '1password-beta'
-cask '1password-cli'
-cask 'alfred'
-cask 'aws-vault'
-cask 'balenaetcher'
-cask 'dash'
-cask 'discord'
-cask 'font-fira-code-nerd-font'
-cask 'iterm2'
-cask 'little-snitch'
-cask 'parsec'
-cask 'slack'
-cask 'the-unarchiver'
-cask 'transmit'
-cask 'vagrant'
-cask 'visual-studio-code'
-
-mas '1Password for Safari', id: 1569813296
-mas 'AdGuard for Safari', id: 1440147259
-mas 'Bear', id: 1091189122
-mas 'Magnet', id: 441258766
-mas 'Microsoft Excel', id: 462058435
-mas 'Microsoft OneNote', id: 784801555
-mas 'Microsoft Outlook', id: 985367838
-mas 'Microsoft PowerPoint', id: 462062816
-mas 'Microsoft Word', id: 462054704
-mas 'Things', id: 904280696
+mas "1Password for Safari", id: 1569813296
+mas "AdGuard for Safari", id: 1440147259
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "OneDrive", id: 823766827
+mas "Tailscale", id: 1475387142
+mas "Things", id: 904280696

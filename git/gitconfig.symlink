@@ -1,7 +1,12 @@
+# vi:syntax=gitconfig
+
+[user]
+  name = Chris Boyle
 [core]
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
   excludesfile = ~/.gitignore
+  editor = vim
 [color]
   ui = auto
 [push]
@@ -18,7 +23,6 @@
   pp = !git pull && git push
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   fpush = push --force-with-lease
-  cob = "!f() { git checkout -b chrisb/$1; }; f"
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
@@ -26,6 +30,14 @@
 [commit]
   verbose = true
   gpgsign = true
+[init]
+  defaultBranch = master
+[diff]
+  tool = vim --nofork
+[merge]
+  conflictStyle = zdiff3
+[rerere]
+  enabled = true
 [credential]
 	helper = osxkeychain
 [include]

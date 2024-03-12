@@ -1,38 +1,47 @@
 #!/bin/zsh
 
-# zmodload zsh/zprof
+export PROJECTS=~/Developer
+export DOTFILES=${PROJECTS}/dotfiles
 
-export PROJECTS="$HOME/Developer"
-export DOTFILES="$PROJECTS/bbck/dotfiles"
+# Source homebrew first
+. $DOTFILES/homebrew/homebrew.zsh
 
-# default editor
-export EDITOR='vim'
-export VEDITOR='code'
+# Everything else
+. $DOTFILES/go/go.zsh
+. $DOTFILES/gpg/gpg.zsh
+. $DOTFILES/k8s/k8s.zsh
+. $DOTFILES/nvim/nvim.zsh
+. $DOTFILES/sys/sys.zsh
+. $DOTFILES/terraform/terraform.zsh
 
-# Load zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# shell history options
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Source local topic folders
-zplug "$DOTFILES/**/*.zsh", from:local
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
 
-# Source external plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "plugins/bundler", from:oh-my-zsh
+# add functions directory to fpath
+export FPATH="$DOTFILES/functions:${FPATH}"
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check; then
-  zplug install
-fi
+# Cache completions
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $HOME/.cache/zsh
 
-# Then, source plugins and add commands to $PATH
-zplug load
+# Activate completions
+autoload -Uz compinit
+compinit
 
-eval "$(starship init zsh)"
+# prompt
+. $DOTFILES/starship/starship.zsh
+
+# add user bin directory to PATH
+export PATH="${HOME}/.local/bin:${PATH}"
 
 # for machine specific config
-[ -f ~/.localrc ] && . ~/.localrc
-
-# zprof
+source ~/.localrc 2>/dev/null || true
