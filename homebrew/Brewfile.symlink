@@ -30,11 +30,10 @@ cask "alacritty"
 cask "alfred"
 cask "dash"
 cask "discord"
-cask "iterm2"
 cask "obsidian"
 
 tap "homebrew/cask-fonts"
-cask "homebrew/cask-fonts/font-fira-code-nerd-font"
+cask "homebrew/cask-fonts/font-jetbrains-mono-nerd-font"
 
 mas "1Password for Safari", id: 1569813296
 mas "AdGuard for Safari", id: 1440147259

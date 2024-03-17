@@ -19,9 +19,15 @@ find "$DOTFILES_ROOT" -name '*.symlink' |
 		ln -sf "$src" "$dst"
 	done
 
-# Install nvim config
-echo "Installing ${HOME}/.config/nvim"
+# TODO: Need a better system for ~/.config
 mkdir -p "${HOME}/.config"
+
+# alacritty config
+echo "Installing ${HOME}/.config/alacritty"
+ln -sf "${DOTFILES_ROOT}/alacritty" "${HOME}/.config/alacritty"
+
+# nvim config
+echo "Installing ${HOME}/.config/nvim"
 ln -sf "${DOTFILES_ROOT}/nvim" "${HOME}/.config/nvim"
 
 # Install homebrew
