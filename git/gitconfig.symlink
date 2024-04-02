@@ -41,4 +41,4 @@
 [credential]
 	helper = osxkeychain
 [include]
-  path = ~/.gitconfig-local
+  path = ~/.gitconfig.local
