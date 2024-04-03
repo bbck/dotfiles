@@ -4,20 +4,20 @@ export PROJECTS=~/Developer
 export DOTFILES=${PROJECTS}/dotfiles
 
 # Source homebrew first
-. $DOTFILES/homebrew/homebrew.zsh
+source $DOTFILES/homebrew/homebrew.zsh
 
 # Everything else
-. $DOTFILES/go/go.zsh
-. $DOTFILES/gpg/gpg.zsh
-. $DOTFILES/k8s/k8s.zsh
-. $DOTFILES/nvim/nvim.zsh
-. $DOTFILES/sys/sys.zsh
-. $DOTFILES/terraform/terraform.zsh
+source $DOTFILES/go/go.zsh
+source $DOTFILES/gpg/gpg.zsh
+source $DOTFILES/k8s/k8s.zsh
+source $DOTFILES/nvim/nvim.zsh
+source $DOTFILES/sys/sys.zsh
+source $DOTFILES/terraform/terraform.zsh
 
 # shell history options
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 setopt APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -28,6 +28,7 @@ setopt HIST_VERIFY
 
 # add functions directory to fpath
 export FPATH="$DOTFILES/functions:${FPATH}"
+autoload -U $fpath[1]/*(.:t)
 
 # Cache completions
 zstyle ':completion:*' use-cache on
@@ -38,7 +39,7 @@ autoload -Uz compinit
 compinit
 
 # prompt
-. $DOTFILES/starship/starship.zsh
+source $DOTFILES/starship/starship.zsh
 
 # add user bin directory to PATH
 export PATH="${HOME}/.local/bin:${PATH}"
