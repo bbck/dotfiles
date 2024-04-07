@@ -18,12 +18,16 @@ brew "rg"
 brew "shellcheck"
 brew "sops"
 brew "starship"
+brew "talhelper"
 brew "tmux"
 brew "ykman"
 brew "yq"
 
 tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
+
+tap "siderolabs/tap"
+brew "siderolabs/tap/talosctl"
 
 cask "1password"
 cask "1password-cli"
