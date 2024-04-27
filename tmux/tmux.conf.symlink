@@ -70,6 +70,7 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 # catppuccin theme done manually, but kanagawa
 # [https://github.com/catppuccin/tmux](https://github.com/catppuccin/tmux)
 set-option -gq status on
+set-option -gq status-position top
 set-option -gq status-bg '#1f1f28'
 set-option -gq status-justify left
 set-option -gq status-left-length 100
