@@ -1,4 +1,29 @@
 # vi:syntax=toml 
+"$schema" = 'https://starship.rs/config-schema.json'
 
+format = """
+$directory\
+$all\
+$kubernetes\
+$line_break\
+$character"""
+
+[cmd_duration]
+disabled = true
+format = '\[[⏱ $duration]($style)\]'
+
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+
+[git_status]
+
+format = '([\[$all_status$ahead_behind\]]($style))'
 [hostname]
 disabled = true
+
+[kubernetes]
+disabled = false
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[terraform]
+format = '\[[$symbol$workspace]($style)\]'
