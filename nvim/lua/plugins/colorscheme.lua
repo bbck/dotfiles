@@ -1,6 +1,18 @@
 return {
 	-- install kanagawa
-	{ "rebelot/kanagawa.nvim" },
+	{
+		"rebelot/kanagawa.nvim",
+		opts = {
+			overrides = function(colors)
+				local ret = {}
+				for i = 1, 6 do
+					-- markdown.nvim
+					ret["RenderMarkdownH" .. i .. "Bg"] = { bg = colors.theme.diff.change }
+				end
+				return ret
+			end,
+		},
+	},
 
 	-- disable included colorschemes
 	{ "catppuccin/nvim", enabled = false },
