@@ -7,7 +7,6 @@ export DOTFILES=${PROJECTS}/dotfiles
 source $DOTFILES/homebrew/homebrew.zsh
 
 # Everything else
-source $DOTFILES/go/go.zsh
 source $DOTFILES/gpg/gpg.zsh
 source $DOTFILES/k8s/k8s.zsh
 source $DOTFILES/nvim/nvim.zsh
