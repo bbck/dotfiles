@@ -6,7 +6,7 @@
   autocrlf = input
   whitespace = trailing-space,cr-at-eol
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = nvim
 [color]
   ui = auto
 [push]
@@ -32,8 +32,6 @@
   gpgsign = true
 [init]
   defaultBranch = master
-[diff]
-  tool = vim --nofork
 [merge]
   conflictStyle = zdiff3
 [rerere]
