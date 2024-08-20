@@ -1,6 +1,8 @@
 # vi:syntax=ruby
 
 brew "bat"
+brew "colima"
+brew "docker"
 brew "eza"
 brew "fd"
 brew "git"
