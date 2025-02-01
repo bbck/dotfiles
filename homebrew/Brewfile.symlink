@@ -26,6 +26,8 @@ brew "talhelper"
 brew "tmux"
 brew "ykman"
 brew "yq"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
 tap "fluxcd/tap"
 brew "fluxcd/tap/flux"

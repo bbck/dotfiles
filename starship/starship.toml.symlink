@@ -3,27 +3,35 @@
 
 format = """
 $directory\
+$fill\
+$git_status\
 $all\
-$kubernetes\
 $line_break\
-$character"""
+$character
+"""
 
 [cmd_duration]
 disabled = true
 format = '\[[⏱ $duration]($style)\]'
 
+[fill]
+symbol = ' '
+
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
 
 [git_status]
-
 format = '([\[$all_status$ahead_behind\]]($style))'
+
 [hostname]
 disabled = true
 
 [kubernetes]
 disabled = false
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[package]
+disabled = true
 
 [terraform]
 format = '\[[$symbol$workspace]($style)\]'

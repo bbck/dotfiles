@@ -24,7 +24,11 @@ mkdir -p "${HOME}/.config"
 
 # nvim config
 echo "Installing ${HOME}/.config/nvim"
-ln -sf "${DOTFILES_ROOT}/nvim" "${HOME}/.config/nvim"
+ln -sf "${DOTFILES_ROOT}/nvim" "${HOME}/.config/"
+
+# bat config
+echo "Installing ${HOME}/.config/bat"
+ln -sf "${DOTFILES_ROOT}/bat" "${HOME}/.config/"
 
 # Install homebrew
 if ! type brew &>/dev/null; then

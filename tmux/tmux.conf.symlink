@@ -16,15 +16,21 @@ set -g history-limit 50000
 set -g display-time 4000
 
 # Enable modern terminal features
-set -g default-terminal "tmux-256color"
+set -g default-terminal "xterm-256color"
 set -as terminal-features ",$TERM:RGB"
+
+# Set default shell
+set -g default-shell /bin/zsh
 
 # Enable focus events
 set -g focus-events on
 
-# Set terminal title
+# Set terminal titleo
 set -g set-titles on
-set -g set-titles-string "#W - #h"
+
+# Show pane names
+set -g pane-border-status top
+set -g pane-border-format "#P: #{pane_current_command}"
 
 # Better pane splitting
 unbind %
