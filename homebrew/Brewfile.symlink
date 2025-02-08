@@ -43,6 +43,7 @@ cask "dash"
 cask "discord"
 cask "obsidian"
 cask "wezterm"
+cask "winbox"
 
 tap "homebrew/cask-fonts"
 cask "homebrew/cask-fonts/font-jetbrains-mono-nerd-font"
