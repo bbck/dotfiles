@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 13
-config.color_scheme = "Kanagawa (Gogh)"
+config.color_scheme = "tokyonight_night"
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
