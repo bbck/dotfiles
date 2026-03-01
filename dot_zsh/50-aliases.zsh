@@ -1,0 +1,10 @@
+alias cat="bat"
+alias egrep="egrep --color=auto"
+alias grep="grep --color=auto"
+alias k='kubectl'
+alias la="ls --all"
+alias ll="la --long"
+alias ls="eza --classify --icons --group-directories-first --git --group"
+alias lx="ll --extended"
+alias tree="ls --tree"
+alias vim="nvim"

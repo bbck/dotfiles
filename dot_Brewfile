@@ -1,0 +1,77 @@
+# vi:syntax=ruby
+
+brew "bat"
+brew "chezmoi"
+brew "colima"
+brew "docker"
+brew "eza"
+brew "fd"
+brew "git"
+brew "gnupg"
+brew "go"
+brew "helm@3"
+brew "jq"
+brew "k9s"
+brew "lazygit"
+brew "kubernetes-cli"
+brew "kustomize"
+brew "mas"
+brew "neovim"
+brew "node"
+brew "opentofu"
+brew "pinentry-mac"
+brew "restic"
+brew "rg"
+brew "sk"
+brew "sops"
+brew "sshpass"
+brew "starship"
+brew "talhelper"
+brew "tree-sitter-cli"
+brew "tmux"
+brew "uv"
+brew "ykman"
+brew "yq"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# language servers and formatters
+brew "gopls"
+brew "lua-language-server"
+brew "markdownlint-cli2"
+brew "shellcheck"
+brew "stylua"
+brew "yaml-language-server"
+brew "yamlfmt"
+
+tap "fluxcd/tap"
+brew "fluxcd/tap/flux"
+
+tap "siderolabs/tap"
+brew "siderolabs/tap/talosctl"
+
+tap "utkuozdemir/pv-migrate"
+brew "utkuozdemir/pv-migrate/pv-migrate"
+
+tap "controlplaneio-fluxcd/tap"
+brew "controlplaneio-fluxcd/tap/flux-operator"
+
+cask "1password"
+cask "1password-cli"
+cask "bambu-studio"
+cask "dash"
+cask "discord"
+cask "font-jetbrains-mono-nerd-font"
+cask "ghostty"
+cask "obsidian"
+cask "raycast"
+cask "tailscale-app"
+cask "winbox"
+
+mas "1Password for Safari", id: 1569813296
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
+mas "OneDrive", id: 823766827
+mas "Things", id: 904280696
+mas "uBlock Origin Lite", id: 6745342698
