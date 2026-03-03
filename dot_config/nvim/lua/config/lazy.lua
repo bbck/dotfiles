@@ -20,7 +20,11 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "kanagawa" } },
-  checker = { enabled = true },
+  install = { colorscheme = { "kanagawa-paper-ink" } },
+  checker = {
+    enabled = true,
+    notify = false,
+    frequency = 86400,
+  },
   rocks = { enabled = false },
 })
