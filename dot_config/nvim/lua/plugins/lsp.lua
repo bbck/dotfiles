@@ -1,6 +1,10 @@
+---@module "lazy"
+---@type LazySpec
 return {
   {
+    -- https://github.com/neovim/nvim-lspconfig
     "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     ---@class PluginLspOpts
     opts = {
       ---@type vim.diagnostic.Opts
@@ -73,6 +77,13 @@ return {
               },
               workspace = {
                 checkThirdParty = false,
+                -- NOTE: Workaround for first load
+                -- https://github.com/folke/lazydev.nvim/issues/136#issuecomment-3855867406
+                library = {
+                  vim.env.VIMRUNTIME,
+                  { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                  { path = "snacks.nvim", words = { "Snacks" } },
+                },
               },
             },
           },
@@ -140,7 +151,7 @@ return {
     end,
   },
   {
-    -- Configures LSP for editing neovim config
+    -- https://github.com/folke/lazydev.nvim
     "folke/lazydev.nvim",
     ft = "lua",
     cmd = "LazyDev",
@@ -152,7 +163,7 @@ return {
     },
   },
   {
-    -- json and yaml schemas
+    -- https://github.com/b0o/SchemaStore.nvim
     "b0o/SchemaStore.nvim",
     lazy = true,
   },

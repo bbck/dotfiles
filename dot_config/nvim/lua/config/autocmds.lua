@@ -1,10 +1,9 @@
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function() vim.highlight.on_yank() end,
+})
 
--- Setup lazy.nvim
-require("config.lazy")
-
+-- Rename tmux window
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     local root_dir = vim.fs.dirname(vim.fs.find(".git", { upward = true })[1])

@@ -2,6 +2,7 @@
 ---@type LazySpec
 return {
   {
+    -- https://github.com/nvim-mini/mini.surround
     "nvim-mini/mini.surround",
     opts = {
       mappings = {
@@ -21,11 +22,10 @@ return {
       { "gsh", desc = "Highlight Surrounding" },
       { "gsr", desc = "Replace Surrounding" },
     },
-    config = function(_, opts)
-      require("mini.surround").setup(opts)
-    end,
+    config = function(_, opts) require("mini.surround").setup(opts) end,
   },
   {
+    -- https://github.com/nvim-mini/mini.pairs
     "nvim-mini/mini.pairs",
     event = "VeryLazy",
     opts = {
@@ -37,45 +37,37 @@ return {
     },
   },
   {
+    -- https://github.com/nvim-mini/mini.ai
     "nvim-mini/mini.ai",
     event = "VeryLazy",
     opts = {},
   },
   {
-    "nvim-mini/mini-git",
-    event = "VeryLazy",
-    main = "mini.git",
-    opts = {},
-  },
-  {
-    "nvim-mini/mini.diff",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
-    -- file formatter
     -- https://github.com/stevearc/conform.nvim
     "stevearc/conform.nvim",
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
-    ---@module 'conform.nvim'
+    keys = {
+      { "<leader>f", function() require("conform").format({ async = true }) end, desc = "Format Buffer" },
+    },
     ---@type conform.setupOpts
     opts = {
       notify_on_error = false,
-      -- TODO: Way to disable this per buffer
-      -- https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_format = "never",
-      },
+      format_on_save = function(bufnr)
+        if vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { timeout_ms = 500, lsp_format = "never" }
+      end,
       formatters_by_ft = {
+        go = { "gofmt" },
         lua = { "stylua" },
         yaml = { "yamlfmt" },
+        ["*"] = { "trim_whitespace" },
       },
     },
   },
   {
-    -- autocompletion
     -- https://github.com/saghen/blink.cmp
     "saghen/blink.cmp",
     event = { "InsertEnter", "CmdlineEnter" },
@@ -112,5 +104,44 @@ return {
       },
     },
     opts_extend = { "sources.default" },
+  },
+  {
+    -- https://github.com/folke/todo-comments.nvim
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
+  {
+    -- https://github.com/lewis6991/gitsigns.nvim
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
+      },
+      signs_staged = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        changedelete = { text = "▎" },
+      },
+      on_attach = function(bufnr)
+        local gitsigns = require("gitsigns")
+
+        local function map(mode, l, r, opts)
+          opts = opts or {}
+          opts.buffer = bufnr
+          vim.keymap.set(mode, l, r, opts)
+        end
+
+        map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Toggle Git Blame" })
+        map({ "o", "x" }, "ih", gitsigns.select_hunk)
+      end,
+    },
   },
 }

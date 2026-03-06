@@ -1,13 +1,12 @@
+---@module "lazy"
+---@type LazySpec
 return {
   {
-    -- colorscheme
     -- https://github.com/thesimonho/kanagawa-paper.nvim
     "thesimonho/kanagawa-paper.nvim",
     lazy = false,
     priority = 1000,
-    init = function()
-      vim.cmd.colorscheme("kanagawa-paper-ink")
-    end,
+    init = function() vim.cmd.colorscheme("kanagawa-paper-ink") end,
     ---@module 'kanagawa-paper'
     ---@type KanagawaConfig
     opts = {
@@ -19,7 +18,6 @@ return {
     },
   },
   {
-    -- buffer tab bar
     -- https://github.com/akinsho/bufferline.nvim
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
@@ -42,7 +40,6 @@ return {
     },
   },
   {
-    -- Ctrl+hjkl between neovim and tmux splits
     -- https://github.com/christoomey/vim-tmux-navigator
     "christoomey/vim-tmux-navigator",
     lazy = true,
@@ -63,21 +60,40 @@ return {
     },
   },
   {
-    --
+    -- https://github.com/nvim-lualine/lualine.nvim
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-mini/mini.icons" },
+    init = function()
+      vim.g.lualine_laststatus = vim.o.laststatus
+      if vim.fn.argc(-1) > 0 then
+        -- set an empty statusline till lualine loads
+        vim.o.statusline = " "
+      else
+        -- hide the statusline on the starter page
+        vim.o.laststatus = 0
+      end
+    end,
+    opts = function()
+      local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
+
+      local opts = {
+        options = {
+          theme = kanagawa_paper,
+        },
+      }
+
+      return opts
+    end,
+  },
+  {
     -- https://github.com/folke/snacks.nvim
     "folke/snacks.nvim",
     lazy = false,
     priority = 1000,
     -- stylua: ignore
     keys = {
-      { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-      { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-      { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
-      { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
       { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-      -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
-      { "<leader>e", function() Snacks.explorer({ cwd = Snacks.git.get_root() }) end, desc = "File Explorer" },
-      { "<leader>E", function() Snacks.explorer({ cwd = vim.uv.cwd() }) end, desc = "File Explorer (cwd)" },
       { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
       { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Delete All Buffers" },
     },
@@ -89,27 +105,69 @@ return {
       image = { enabled = false },
       indent = { enabled = true },
       input = { enabled = true },
-      notifier = { enabled = true },
-      picker = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 10000,
+      },
+      picker = { enabled = false },
       quickfile = { enabled = true },
-      scope = { enabled = true },
+      scope = { enabled = false },
       scroll = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
     },
   },
   {
-    -- keybinding hints
+    -- https://github.com/ibhagwan/fzf-lua
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-mini/mini.icons" },
+    cmd = "FzfLua",
+    -- stylua: ignore
+    keys = {
+      { "<leader><space>", "<cmd>FzfLua files<cr>", desc = "Search Files (Root Dir)" },
+      { "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep (Root Dir)" },
+      { "<leader>,", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Search Buffers" },
+      -- Search
+      { '<leader>sb', "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
+      { "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Files (Root Dir)" },
+      { "<leader>sF", "<cmd>FzfLua files<cr>", desc = "Files (cwd)" },
+      { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
+      { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
+      { "<leader>s:", "<cmd>FzfLua command_history<cr>", desc = "Commands" },
+      { "<leader>sz", function() require("chezmoi.pick").fzf() end, desc = "dotfiles" },
+    },
+    ---@type fzf-lua.Config
+    opts = {
+      winopts = {
+        height = 0.40,
+        width = 1.0,
+        row = 1.0,
+      },
+    },
+  },
+  {
     -- https://github.com/folke/which-key.nvim
     "folke/which-key.nvim",
     event = "VeryLazy",
     -- stylua: ignore
     keys = {
-      { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps (which-key)", },
+      { "<leader>?", function() require("which-key").show({ global = false }) end, desc = "Buffer Local Keymaps", },
+    },
+    opts = {
+      spec = {
+        {
+          "<leader>b",
+          group = "buffers",
+          expand = function() return require("which-key.extras").expand.buf() end,
+        },
+        { "<leader>g", group = "git" },
+        { "<leader>s", group = "search" },
+        { "<leader>t", group = "toggle" },
+        { "<leader>w", proxy = "<c-w>", group = "windows" },
+      },
     },
   },
   {
-    -- icon library for other plugins
     -- https://github.com/nvim-mini/mini.icons
     "nvim-mini/mini.icons",
     lazy = true,
@@ -121,13 +179,6 @@ return {
         return package.loaded["nvim-web-devicons"]
       end
     end,
-  },
-  {
-    -- bottom statusline
-    -- https://github.com/nvim-mini/mini.statusline
-    "nvim-mini/mini.statusline",
-    event = "VeryLazy",
-    opts = {},
   },
   {
     -- https://github.com/folke/noice.nvim
@@ -143,6 +194,22 @@ return {
       presets = {
         command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
+      },
+    },
+  },
+  {
+    -- https://github.com/mikavilpas/yazi.nvim
+    "mikavilpas/yazi.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>e", "<cmd>Yazi cwd<cr>", desc = "File explorer (cwd)" },
+      { "<leader>E", "<cmd>Yazi<cr>", desc = "File explorer (buffer)" },
+    },
+    ---@type YaziConfig | {}
+    opts = {
+      integrations = {
+        grep_in_selected_files = "fzf-lua",
+        grep_in_directory = "fzf-lua",
       },
     },
   },
