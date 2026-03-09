@@ -100,7 +100,20 @@ return {
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      dashboard = { enabled = true },
+      dashboard = {
+        enabled = true,
+        preset = {
+          ---@type snacks.dashboard.Item[]
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":FzfLua files" },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+            { icon = " ", key = "c", desc = "Config", action = function() require("chezmoi.pick").fzf() end },
+            { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+      },
       explorer = { enabled = false },
       image = { enabled = false },
       indent = { enabled = true },

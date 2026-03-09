@@ -12,12 +12,16 @@ return {
         pattern = { os.getenv("HOME") .. "/.local/share/chezmoi/*" },
         callback = function(ev)
           local bufnr = ev.buf
-          local edit_watch = function()
-            require("chezmoi.commands.__edit").watch(bufnr)
-          end
+          local edit_watch = function() require("chezmoi.commands.__edit").watch(bufnr) end
           vim.schedule(edit_watch)
         end,
       })
     end,
+  },
+  {
+    -- https://github.com/folke/persistence.nvim
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {},
   },
 }
