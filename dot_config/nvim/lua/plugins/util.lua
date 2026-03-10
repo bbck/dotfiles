@@ -22,6 +22,9 @@ return {
     -- https://github.com/folke/persistence.nvim
     "folke/persistence.nvim",
     event = "BufReadPre",
-    opts = {},
+    opts = {
+      options = { "buffers", "curdir", "globals", "tabpages", "winsize" },
+      pre_save = function() vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" }) end,
+    },
   },
 }

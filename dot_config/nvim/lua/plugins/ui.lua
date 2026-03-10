@@ -18,23 +18,29 @@ return {
     },
   },
   {
-    -- https://github.com/akinsho/bufferline.nvim
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
+    -- https://github.com/romgrk/barbar.nvim
+    "romgrk/barbar.nvim",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     keys = {
-      { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-      { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+      { "<leader>bd", "<cmd>BufferClose<cr>", desc = "Delete Buffer" },
+      { "<leader>bD", "<cmd>BufferCloseAllButCurrentOrPinned<cr>", desc = "Delete Other Buffers" },
+      { "<leader>bp", "<cmd>BufferPin<cr>", desc = "Pin Buffer" },
+      { "<S-h>", "<cmd>BufferPrevious<cr>", desc = "Previous Buffer" },
+      { "<S-l>", "<cmd>BufferNext<cr>", desc = "Next Buffer" },
     },
-    ---@module 'bufferline'
     opts = {
-      ---@type bufferline.Options
-      options = {
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        offsets = {
-          {
-            filetype = "snacks_layout_box",
-          },
+      icons = {
+        pinned = { button = "", filename = true },
+        diagnostics = {
+          [vim.diagnostic.severity.ERROR] = { enabled = true },
+          [vim.diagnostic.severity.WARN] = { enabled = false },
+          [vim.diagnostic.severity.INFO] = { enabled = false },
+          [vim.diagnostic.severity.HINT] = { enabled = false },
+        },
+        gitsigns = {
+          added = { enabled = false },
+          changed = { enabled = false },
+          deleted = { enabled = false },
         },
       },
     },
@@ -94,8 +100,6 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-      { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-      { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Delete All Buffers" },
     },
     ---@type snacks.Config
     opts = {
@@ -168,12 +172,9 @@ return {
     },
     opts = {
       spec = {
-        {
-          "<leader>b",
-          group = "buffers",
-          expand = function() return require("which-key.extras").expand.buf() end,
-        },
+        { "<leader>b", group = "buffers" },
         { "<leader>g", group = "git" },
+        { "<leader>h", group = "git hunks" },
         { "<leader>s", group = "search" },
         { "<leader>t", group = "toggle" },
         { "<leader>w", proxy = "<c-w>", group = "windows" },
