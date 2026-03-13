@@ -137,15 +137,8 @@ return {
         group = vim.api.nvim_create_augroup("my.lsp", {}),
         callback = function(args)
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-          -- Configure folds
-          if client:supports_method("textDocument/foldingRange", args.buf) then
-            vim.opt.foldmethod = "expr"
-            vim.opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
-          end
-          -- Configure completion
-          if client:supports_method("textDocument/completion", args.buf) then
-            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-          end
+          require("util.lsp").features(client, args.buf)
+          require("util.lsp").keymaps(client, args.buf)
         end,
       })
     end,

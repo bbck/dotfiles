@@ -153,6 +153,7 @@ return {
       { "<leader>s:", "<cmd>FzfLua command_history<cr>", desc = "Commands" },
       { "<leader>sz", function() require("chezmoi.pick").fzf() end, desc = "dotfiles" },
     },
+    ---@module "fzf-lua"
     ---@type fzf-lua.Config
     opts = {
       winopts = {
@@ -219,7 +220,8 @@ return {
       { "<leader>e", "<cmd>Yazi cwd<cr>", desc = "File explorer (cwd)" },
       { "<leader>E", "<cmd>Yazi<cr>", desc = "File explorer (buffer)" },
     },
-    ---@type YaziConfig | {}
+    ---@module "yazi"
+    ---@type YaziConfig
     opts = {
       integrations = {
         grep_in_selected_files = "fzf-lua",
