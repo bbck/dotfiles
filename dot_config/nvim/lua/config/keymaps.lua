@@ -6,3 +6,4 @@ map("n", "<leader>tf", function() require("util.format").format_on_save() end, {
 
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below" })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right" })
+map("n", "<leader>wc", "<C-W>c", { desc = "Close window" })
