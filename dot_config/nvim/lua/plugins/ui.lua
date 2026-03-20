@@ -86,7 +86,29 @@ return {
       local opts = {
         options = {
           theme = kanagawa_paper,
+          disabled_filetypes = { "snacks_dashboard" },
         },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch" },
+          lualine_c = {
+            {
+              "diagnostics",
+              symbols = {
+                error = " ",
+                warn = " ",
+                info = " ",
+                hint = " ",
+              },
+            },
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { "filename", path = 4, padding = { right = 0 } },
+          },
+          lualine_x = { "diff" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+        extensions = { "fzf", "lazy" },
       }
 
       return opts
