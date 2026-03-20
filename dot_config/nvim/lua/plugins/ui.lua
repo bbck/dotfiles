@@ -105,7 +105,16 @@ return {
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             { "filename", path = 4, padding = { right = 0 } },
           },
-          lualine_x = { "diff" },
+          lualine_x = {
+            {
+              "diff",
+              symbols = {
+                added = icons.git.added,
+                modified = icons.git.modified,
+                removed = icons.git.removed,
+              },
+            },
+          },
           lualine_y = { "progress" },
           lualine_z = { "location" },
         },
