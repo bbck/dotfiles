@@ -86,6 +86,17 @@ return {
             auto_insert = false,
           },
         },
+        menu = {
+          draw = {
+            columns = { { "kind_icon" }, { "label", gap = 1 } },
+            components = {
+              label = {
+                text = function(ctx) return require("colorful-menu").blink_components_text(ctx) end,
+                highlight = function(ctx) return require("colorful-menu").blink_components_highlight(ctx) end,
+              },
+            },
+          },
+        },
       },
       keymap = { preset = "default" },
       sources = {
@@ -104,6 +115,11 @@ return {
       },
     },
     opts_extend = { "sources.default" },
+  },
+  {
+    -- https://github.com/xzbdmw/colorful-menu.nvim
+    "xzbdmw/colorful-menu.nvim",
+    opts = {},
   },
   {
     -- https://github.com/folke/todo-comments.nvim
