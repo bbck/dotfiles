@@ -14,10 +14,10 @@ return {
         signs = {
           enabled = true,
           text = {
-            [vim.diagnostic.severity.ERROR] = " ",
-            [vim.diagnostic.severity.WARN] = " ",
-            [vim.diagnostic.severity.INFO] = " ",
-            [vim.diagnostic.severity.HINT] = " ",
+            [vim.diagnostic.severity.ERROR] = require("util.icons").diagnostics.error,
+            [vim.diagnostic.severity.WARN]  = require("util.icons").diagnostics.warn,
+            [vim.diagnostic.severity.INFO]  = require("util.icons").diagnostics.info,
+            [vim.diagnostic.severity.HINT]  = require("util.icons").diagnostics.hint,
           },
         },
         underline = { severity = vim.diagnostic.severity.ERROR },

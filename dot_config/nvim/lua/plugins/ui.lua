@@ -32,7 +32,7 @@ return {
       icons = {
         pinned = { button = "", filename = true },
         diagnostics = {
-          [vim.diagnostic.severity.ERROR] = { enabled = true },
+          [vim.diagnostic.severity.ERROR] = { enabled = true, icon = require("util.icons").diagnostics.error },
           [vim.diagnostic.severity.WARN] = { enabled = false },
           [vim.diagnostic.severity.INFO] = { enabled = false },
           [vim.diagnostic.severity.HINT] = { enabled = false },
@@ -82,6 +82,7 @@ return {
     end,
     opts = function()
       local kanagawa_paper = require("lualine.themes.kanagawa-paper-ink")
+      local icons = require("util.icons")
 
       local opts = {
         options = {
@@ -95,10 +96,10 @@ return {
             {
               "diagnostics",
               symbols = {
-                error = " ",
-                warn = " ",
-                info = " ",
-                hint = " ",
+                error = icons.diagnostics.error,
+                warn = icons.diagnostics.warn,
+                info = icons.diagnostics.info,
+                hint = icons.diagnostics.hint,
               },
             },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
