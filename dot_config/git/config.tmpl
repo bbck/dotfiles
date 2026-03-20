@@ -23,6 +23,7 @@
   pp = !git pull && git push
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   fpush = push --force-with-lease
+  root = rev-parse --show-toplevel
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]

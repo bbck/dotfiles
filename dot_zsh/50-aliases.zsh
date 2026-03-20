@@ -1,5 +1,6 @@
 alias cat="bat"
 alias egrep="egrep --color=auto"
+alias gr="git root"
 alias grep="grep --color=auto"
 alias k='kubectl'
 alias la="ls --all"
