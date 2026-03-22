@@ -181,6 +181,8 @@ return {
       { "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Files (Root Dir)" },
       { "<leader>sF", "<cmd>FzfLua files<cr>", desc = "Files (cwd)" },
       { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
+      { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Symbols" },
+      { "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", desc = "Symbols (Workspace)" },
       { '<leader>s"', "<cmd>FzfLua registers<cr>", desc = "Registers" },
       { "<leader>s:", "<cmd>FzfLua command_history<cr>", desc = "Commands" },
       { "<leader>sz", function() require("chezmoi.pick").fzf() end, desc = "dotfiles" },
