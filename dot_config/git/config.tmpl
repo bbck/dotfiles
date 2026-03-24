@@ -24,6 +24,8 @@
   recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
   fpush = push --force-with-lease
   root = rev-parse --show-toplevel
+  cb = switch -c
+  sw = !git for-each-ref refs/heads/ --format='%(refname:short)' | fzf | xargs git switch
 [format]
   pretty = %C(yellow)%h%Creset %s %C(cyan)(%an, %cr)%Creset
 [help]
