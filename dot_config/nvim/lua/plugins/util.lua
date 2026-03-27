@@ -27,4 +27,12 @@ return {
       pre_save = function() vim.api.nvim_exec_autocmds("User", { pattern = "SessionSavePre" }) end,
     },
   },
+  {
+    -- ghostty config
+    -- https://github.com/ghostty-org/ghostty/discussions/8438
+    "ghostty-org/ghostty",
+    lazy = false,
+    dir = (vim.env.GHOSTTY_RESOURCES_DIR or "") .. "/../nvim/site",
+    cond = vim.env.GHOSTTY_RESOURCES_DIR ~= nil,
+  },
 }
