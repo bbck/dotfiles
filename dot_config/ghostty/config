@@ -22,3 +22,4 @@ selection-background = #363646
 selection-foreground = #9e9b93
 
 cursor-style = block
+font-size = 14
