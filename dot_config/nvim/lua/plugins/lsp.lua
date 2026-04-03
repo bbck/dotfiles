@@ -15,9 +15,9 @@ return {
           enabled = true,
           text = {
             [vim.diagnostic.severity.ERROR] = require("util.icons").diagnostics.error,
-            [vim.diagnostic.severity.WARN]  = require("util.icons").diagnostics.warn,
-            [vim.diagnostic.severity.INFO]  = require("util.icons").diagnostics.info,
-            [vim.diagnostic.severity.HINT]  = require("util.icons").diagnostics.hint,
+            [vim.diagnostic.severity.WARN] = require("util.icons").diagnostics.warn,
+            [vim.diagnostic.severity.INFO] = require("util.icons").diagnostics.info,
+            [vim.diagnostic.severity.HINT] = require("util.icons").diagnostics.hint,
           },
         },
         underline = { severity = vim.diagnostic.severity.ERROR },
@@ -77,13 +77,6 @@ return {
               },
               workspace = {
                 checkThirdParty = false,
-                -- NOTE: Workaround for first load
-                -- https://github.com/folke/lazydev.nvim/issues/136#issuecomment-3855867406
-                library = {
-                  vim.env.VIMRUNTIME,
-                  { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                  { path = "snacks.nvim", words = { "Snacks" } },
-                },
               },
             },
           },
@@ -152,6 +145,7 @@ return {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
         { path = "snacks.nvim", words = { "Snacks" } },
+        { path = "nvim-lspconfig", words = { "lspconfig.settings" } },
       },
     },
   },
