@@ -1,6 +1,8 @@
-export HOMEBREW_AUTO_UPDATE_SECS=86400
+if command -v brew &>/dev/null; then
+  export HOMEBREW_AUTO_UPDATE_SECS=86400
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# homebrew completions
-export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  # homebrew completions
+  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi

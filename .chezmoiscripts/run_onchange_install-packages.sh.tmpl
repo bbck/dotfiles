@@ -1,0 +1,39 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew bundle --cleanup --file=/dev/stdin <<EOF
+{{ include "dot_Brewfile" }}
+EOF
+{{ else if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# Check if yay is installed
+if ! command -v yay &>/dev/null; then
+  sudo pacman -S --noconfirm yay-bin
+fi
+
+# NOTE: Not including GUI applications unless they are critical
+packages=(
+  1password
+  1password-cli
+  fzf
+  ghostty
+  k9s
+  neovim
+  sops
+  starship
+  talhelper
+  talosctl-bin
+  tmux
+  yazi
+  yubikey-manager
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+for package in "${packages[@]}"; do
+  if ! yay -Q "$package" &> /dev/null; then
+    yay -S --noconfirm "$package"
+  fi
+done
+{{ end -}}

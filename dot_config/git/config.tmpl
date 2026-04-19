@@ -40,4 +40,8 @@
 [rerere]
   enabled = true
 [credential]
+{{ if eq .chezmoi.os "darwin" -}}
   helper = osxkeychain
+{{ else if eq .chezmoi.os "linux" -}}
+  helper = libsecret
+{{ end -}}
