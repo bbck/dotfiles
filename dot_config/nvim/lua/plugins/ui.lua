@@ -174,6 +174,7 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader><space>", "<cmd>FzfLua files<cr>", desc = "Search Files (Root Dir)" },
+      { "<leader>r", "<cmd>FzfLua resume<cr>", desc = "Resume last search" },
       { "<leader>/", "<cmd>FzfLua live_grep<cr>", desc = "Grep (Root Dir)" },
       { "<leader>,", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Search Buffers" },
       -- Search
