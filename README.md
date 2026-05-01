@@ -10,5 +10,5 @@ My personal dotfiles for ZSH managed with [Chezmoi](https://www.chezmoi.io/).
 ## Installing
 
 ```
-chezmoi init --aply https://github.com/bbck/dotfiles.git
+chezmoi init --apply https://github.com/bbck/dotfiles.git
 ```
