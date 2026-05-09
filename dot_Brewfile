@@ -72,9 +72,10 @@ cask "tailscale-app"
 cask "winbox"
 
 mas "1Password for Safari", id: 1569813296
+mas "Karakeep", id: 6479258022
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
-mas "OneDrive", id: 823766827
+mas "Raycast Companion", id: 6738274497
 mas "Things", id: 904280696
 mas "uBlock Origin Lite", id: 6745342698
