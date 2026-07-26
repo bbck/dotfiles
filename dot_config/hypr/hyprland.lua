@@ -105,6 +105,7 @@ hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "dolphin"))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
 hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
+hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.exec_cmd(uwsm .. "1password --quick-access"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(uwsm .. "ghostty -e btop"))
 
 --- Autostart
