@@ -26,6 +26,9 @@ hl.config({
 		accel_profile = "flat",
 		sensitivity = 0,
 	},
+	cursor = {
+		no_hardware_cursors = 1,
+	},
 	misc = {
 		enable_swallow = true,
 		swallow_regex = "^ghostty$",
@@ -46,7 +49,7 @@ local tv = "HDMI-A-1"
 
 hl.monitor({
 	output = primary,
-	mode = "3840x2160@120",
+	mode = "3440x1440@120",
 	position = "0x0",
 	scale = "1",
 })
@@ -54,7 +57,7 @@ hl.monitor({
 hl.monitor({
 	output = secondary,
 	mode = "2560x1440@60",
-	position = "-1440x-625",
+	position = "-1440x-620",
 	scale = "1",
 	transform = 3,
 })
