@@ -78,6 +78,7 @@ local noctalia = "noctalia msg "
 
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprctl kill"))
 hl.bind(mainMod .. " + q", hl.dsp.window.close())
+hl.bind(mainMod .. " + s", hl.dsp.exec_cmd(noctalia .. "panel-open session"))
 
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
@@ -104,7 +105,6 @@ hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "dolphin"))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
 hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
-hl.bind(mainMod .. " + SHIFT + n", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(uwsm .. "ghostty -e btop"))
 
 --- Autostart
