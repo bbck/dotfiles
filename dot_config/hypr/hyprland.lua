@@ -1,9 +1,17 @@
+local dragonYellow = "rgb(c4b28a)"
+local sumiInk3 = "rgb(1f1f28)"
+local dragonRed = "rgb(c4746e)"
+
 hl.config({
 	general = {
 		layout = "scrolling",
 		gaps_in = 2,
 		gaps_out = 5,
 		border_size = 2,
+		col = {
+			active_border = dragonYellow,
+			inactive_border = sumiInk3,
+		},
 	},
 	decoration = {
 		rounding = 10,
@@ -66,7 +74,7 @@ local uwsm = "uwsm app -- "
 local noctalia = "noctalia msg "
 
 hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprctl kill"))
-hl.bind(mainMod .. " + Q", hl.dsp.window.close())
+hl.bind(mainMod .. " + q", hl.dsp.window.close())
 
 hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
@@ -84,10 +92,16 @@ hl.bind(mainMod .. " + ALT + 1", hl.dsp.focus({ workspace = "1" }))
 hl.bind(mainMod .. " + ALT + 2", hl.dsp.focus({ workspace = "2" }))
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
 
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(uwsm .. "ghostty"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(uwsm .. "chromium"))
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag()) -- left click
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize()) -- right click
+
+hl.bind(mainMod .. " + t", hl.dsp.exec_cmd(uwsm .. "ghostty"))
+hl.bind(mainMod .. " + b", hl.dsp.exec_cmd(uwsm .. "chromium"))
+hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "dolphin"))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
+hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
+hl.bind(mainMod .. " + SHIFT + n", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
 hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(uwsm .. "ghostty -e btop"))
 
 --- Autostart
@@ -192,4 +206,15 @@ hl.window_rule({
 	match = { title = "Noctalia Settings" },
 	float = true,
 	size = { "monitor_w*0.70", "monitor_h*0.70" },
+})
+
+hl.window_rule({
+	match = { title = "satty" },
+	float = true,
+	size = { "monitor_w*0.70", "monitor_h*0.70" },
+})
+
+hl.window_rule({
+	match = { class = "org.kde.dolphin" },
+	float = true,
 })
