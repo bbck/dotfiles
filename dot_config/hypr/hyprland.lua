@@ -5,6 +5,7 @@ local dragonRed = "rgb(c4746e)"
 hl.config({
 	general = {
 		layout = "scrolling",
+		allow_tearing = true,
 		gaps_in = 2,
 		gaps_out = 5,
 		border_size = 2,
@@ -185,6 +186,7 @@ hl.window_rule({
 	content = "game",
 	decorate = false,
 	fullscreen_state = 2,
+	immediate = true,
 })
 
 -- GW2 launcher
