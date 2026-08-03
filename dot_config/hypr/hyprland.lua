@@ -224,3 +224,8 @@ hl.window_rule({
 	match = { class = "org.kde.dolphin" },
 	float = true,
 })
+
+hl.window_rule({
+	match = { class = "hyprland-share-picker" },
+	float = true,
+})
