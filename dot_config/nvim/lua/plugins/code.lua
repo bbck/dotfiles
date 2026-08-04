@@ -62,6 +62,7 @@ return {
       formatters_by_ft = {
         go = { "gofmt" },
         lua = { "stylua" },
+        toml = { "tombi" },
         yaml = { "yamlfmt" },
         ["*"] = { "trim_whitespace" },
       },
