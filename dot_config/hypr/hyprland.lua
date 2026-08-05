@@ -77,7 +77,7 @@ local mainMod = "SUPER"
 local uwsm = "uwsm app -- "
 local noctalia = "noctalia msg "
 
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprctl kill"))
+hl.bind(mainMod .. " + escape", hl.dsp.exec_cmd("hyprctl kill"))
 hl.bind(mainMod .. " + q", hl.dsp.window.close())
 hl.bind(mainMod .. " + s", hl.dsp.exec_cmd(noctalia .. "panel-open session"))
 
@@ -95,7 +95,7 @@ hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ monitor = primary }))
 hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.window.move({ monitor = secondary }))
 hl.bind(mainMod .. " + ALT + 1", hl.dsp.focus({ workspace = "1" }))
 hl.bind(mainMod .. " + ALT + 2", hl.dsp.focus({ workspace = "2" }))
-hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
+hl.bind("ALT + tab", hl.dsp.window.cycle_next())
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag()) -- left click
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize()) -- right click
@@ -103,11 +103,12 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize()) -- right click
 hl.bind(mainMod .. " + t", hl.dsp.exec_cmd(uwsm .. "ghostty"))
 hl.bind(mainMod .. " + b", hl.dsp.exec_cmd(uwsm .. "chromium"))
 hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "dolphin"))
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
-hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
+hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(noctalia .. "settings-toggle"))
+hl.bind(mainMod .. " + tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
 hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd(noctalia .. "screenshot-region"))
-hl.bind(mainMod .. " + SHIFT + Space", hl.dsp.exec_cmd(uwsm .. "1password --quick-access"))
-hl.bind("CONTROL + SHIFT + Escape", hl.dsp.exec_cmd(uwsm .. "ghostty -e btop"))
+hl.bind(mainMod .. " + SHIFT + space", hl.dsp.exec_cmd(uwsm .. "1password --quick-access"))
+hl.bind("CONTROL + SHIFT + escape", hl.dsp.exec_cmd(uwsm .. "ghostty -e btop"))
 
 --- Autostart
 
@@ -209,9 +210,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { title = "Noctalia Settings" },
+	match = { class = "dev.noctalia.Noctalia" },
 	float = true,
-	size = { "monitor_w*0.70", "monitor_h*0.70" },
+	size = { 1080, 920 },
 })
 
 hl.window_rule({
