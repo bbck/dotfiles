@@ -1,4 +1,5 @@
 alias cat="bat"
+alias dots="cd ~/.local/share/chezmoi"
 alias egrep="egrep --color=auto"
 alias grep="grep --color=auto"
 alias k='kubectl'
