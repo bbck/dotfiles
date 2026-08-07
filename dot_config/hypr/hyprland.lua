@@ -95,6 +95,7 @@ hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ monitor = primary }))
 hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.window.move({ monitor = secondary }))
 hl.bind(mainMod .. " + ALT + 1", hl.dsp.focus({ workspace = "1" }))
 hl.bind(mainMod .. " + ALT + 2", hl.dsp.focus({ workspace = "2" }))
+hl.bind(mainMod .. " + ALT + 0", hl.dsp.focus({ workspace = "name:gaming" }))
 hl.bind("ALT + tab", hl.dsp.window.cycle_next())
 
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag()) -- left click
