@@ -1,0 +1,44 @@
+[theme]
+community_palette = "Kanagawa Paper"
+source = "community"
+
+[bar.main]
+start = ["launcher"]
+center = ["clock"]
+end = ["tray", "notifications", "network", "volume", "session"]
+margin_ends = 860
+
+[bar.main.monitor.DP-4]
+enabled = false
+
+[idle]
+behavior_order = ["lock", "suspend"]
+
+[idle.behavior.lock]
+action = "lock"
+timeout = 900  # 15 min
+
+[idle.behavior.suspend]
+action = "suspend"
+timeout = 1800
+
+[lockscreen]
+monitors = ["DP-1"]
+tint_intensity = 0.3
+
+# TODO: lockscreen widgets
+
+[notification]
+monitors = ["DP-1"]
+
+[shell.launcher.providers.calculator]
+global = false
+
+[weather]
+unit = "imperial"
+
+[widget.network]
+show_label = false
+
+[widget.tray]
+drawer = true
