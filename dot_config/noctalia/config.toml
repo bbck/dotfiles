@@ -31,6 +31,9 @@ tint_intensity = 0.3
 [notification]
 monitors = ["DP-1"]
 
+[shell]
+launch_apps_custom_command = "uwsm-app -- $CMD"
+
 [shell.launcher.providers.calculator]
 global = false
 
