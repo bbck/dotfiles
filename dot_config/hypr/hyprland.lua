@@ -89,6 +89,8 @@ hl.bind(mainMod .. " + SHIFT + h", hl.dsp.layout("swapcol l"))
 hl.bind(mainMod .. " + SHIFT + l", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + SHIFT + j", hl.dsp.layout("swapcol r"))
 hl.bind(mainMod .. " + SHIFT + k", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + ALT + h", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mainMod .. " + ALT + l", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. " + equal", hl.dsp.layout("colresize +conf"))
 hl.bind(mainMod .. " + minus", hl.dsp.layout("colresize -conf"))
 hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({ monitor = primary }))
@@ -103,7 +105,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize()) -- right click
 
 hl.bind(mainMod .. " + t", hl.dsp.exec_cmd(uwsm .. "ghostty"))
 hl.bind(mainMod .. " + b", hl.dsp.exec_cmd(uwsm .. "chromium"))
-hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "dolphin"))
+hl.bind(mainMod .. " + e", hl.dsp.exec_cmd(uwsm .. "thunar"))
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))
 hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd(noctalia .. "settings-toggle"))
 hl.bind(mainMod .. " + tab", hl.dsp.exec_cmd(noctalia .. "window-switcher"))
@@ -223,7 +225,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "org.kde.dolphin" },
+	match = { class = "thunar" },
 	float = true,
 })
 
