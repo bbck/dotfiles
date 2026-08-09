@@ -1,2 +1,4 @@
-TERMINAL=ghostty
-BROWSER=chromium
+export TERMINAL=ghostty
+export BROWSER=chromium
+export QT_QPA_PLATFORMTHEME=hyprqt6engine
+export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
