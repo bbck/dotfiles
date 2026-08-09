@@ -18,15 +18,15 @@ margin_ends = 860
 enabled = false
 
 [idle]
-behavior_order = ["lock", "suspend"]
+behavior_order = ["lock", "screen-off"]
 
 [idle.behavior.lock]
 action = "lock"
 timeout = 900  # 15 min
 
-[idle.behavior.suspend]
-action = "suspend"
-timeout = 1800
+[idle.behavior.screen-off]
+action = "screen_off"
+timeout = 1800  # 30 min
 
 [lockscreen]
 monitors = ["DP-1"]
