@@ -2,6 +2,9 @@
 community_palette = "Kanagawa Paper"
 source = "community"
 
+[wallpaper.default]
+path = "/home/chris/Pictures/Wallpapers/lamp-post.jpg"
+
 [bar.main]
 start = ["launcher"]
 center = ["clock"]
