@@ -2,6 +2,9 @@
 community_palette = "Kanagawa Paper"
 source = "community"
 
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4"]
+
 [wallpaper.default]
 path = "/home/chris/Pictures/Wallpapers/lamp-post.jpg"
 
