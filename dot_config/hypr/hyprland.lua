@@ -234,3 +234,8 @@ hl.window_rule({
 	match = { class = "hyprland-share-picker" },
 	float = true,
 })
+
+hl.window_rule({
+	match = { class = "BambuStudio" },
+	scrolling_width = 0.75,
+})
