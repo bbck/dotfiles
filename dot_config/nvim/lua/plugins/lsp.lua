@@ -31,6 +31,7 @@ return {
         enabled = true,
       },
       servers = {
+        bashls = {},
         -- jsonls = {
         --   -- lazy-load schemastore when needed
         --   before_init = function(_, new_config)

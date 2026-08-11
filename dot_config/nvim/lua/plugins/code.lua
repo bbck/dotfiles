@@ -60,6 +60,7 @@ return {
         return { timeout_ms = 500, lsp_format = "never" }
       end,
       formatters_by_ft = {
+        bash = { "shfmt" },
         go = { "gofmt" },
         lua = { "stylua" },
         toml = { "tombi" },
