@@ -236,6 +236,12 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	match = { class = "lxqt-openssh-askpass" },
+	float = true,
+	center = true,
+})
+
+hl.window_rule({
 	match = { class = "BambuStudio" },
 	scrolling_width = 0.75,
 })
