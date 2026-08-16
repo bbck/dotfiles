@@ -1,0 +1,128 @@
+sumiInk5: &surface "#363646"
+dragonGray2: &muted "#9e9b93"
+dragonYellow: &accent "#c4b28a"
+dragonBlack5: &black "#393836"
+dragonRed: &red "#c4746e"
+dragonGreen: &green "#699469"
+dragonBlue5: &blue "#435965"
+dragonPink: &magenta "#a292a3"
+dragonAqua: &cyan "#8ea49e"
+dragonBlack5Bright: &brightBlack "#aca9a4"
+dragonGreenBright: &brightGreen "#72a072"
+dragonYellowBright: &brightYellow "#d4c196"
+dragonBlue5Bright: &brightBlue "#698a9b"
+
+k9s:
+  body:
+    fgColor: default
+    bgColor: default
+    logoColor: *accent
+    logoColorMsg: default
+    logoColorInfo: *green
+    logoColorWarn: *accent
+    logoColorError: *red
+  prompt:
+    fgColor: default
+    bgColor: default
+    suggestColor: *muted
+    border:
+      command: *cyan
+      default: *green
+  help:
+    fgColor: default
+    bgColor: default
+    sectionColor: *green
+    keyColor: *cyan
+    numKeyColor: *magenta
+  frame:
+    title:
+      fgColor: default
+      bgColor: default
+      highlightColor: *accent
+      counterColor: default
+      filterColor: *green
+    border:
+      fgColor: *muted
+      focusColor: *accent
+    menu:
+      fgColor: default
+      keyColor: *cyan
+      numKeyColor: *magenta
+    crumbs:
+      fgColor: default
+      bgColor: default
+      activeColor: *accent
+    status:
+      newColor: *brightBlue
+      modifyColor: *magenta
+      addColor: *green
+      pendingColor: *accent
+      errorColor: *red
+      highlightColor: *accent
+      killColor: *muted
+      completedColor: *brightBlack
+  info:
+    sectionColor: default
+    fgColor: *accent
+  views:
+    table:
+      fgColor: default
+      bgColor: default
+      cursorFgColor: *black
+      cursorBgColor: *accent
+      markColor: *brightGreen
+      header:
+        fgColor: default
+        bgColor: default
+        sorterColor: *cyan
+        selectedSortColumnColor: *brightBlue
+    xray:
+      fgColor: default
+      bgColor: default
+      cursorColor: *surface
+      cursorTextColor: default
+      graphicColor: *cyan
+    charts:
+      bgColor: default
+      dialBgColor: default
+      chartBgColor: default
+      focusFgColor: default
+      focusBgColor: *accent
+      defaultDialColors:
+        - *green
+        - *red
+      defaultChartColors:
+        - *green
+        - *red
+      resourceColors:
+        cpu:
+          - *blue
+          - *brightBlue
+        mem:
+          - *accent
+          - *brightYellow
+    yaml:
+      keyColor: *cyan
+      valueColor: default
+      colonColor: default
+    picker:
+      mainColor: default
+      focusColor: *accent
+      shortcutColor: *cyan
+    logs:
+      fgColor: default
+      bgColor: default
+      indicator:
+        fgColor: default
+        bgColor: default
+        toggleOnColor: default
+        toggleOffColor: default
+  dialog:
+    fgColor: default
+    bgColor: *surface
+    buttonFgColor: *black
+    buttonBgColor: *accent
+    buttonFocusFgColor: *black
+    buttonFocusBgColor: *brightYellow
+    labelFgColor: default
+    fieldFgColor: default
