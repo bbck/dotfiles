@@ -56,4 +56,5 @@ set.splitright = true -- Put new windows right of current
 set.tabstop = 2 -- Number of spaces tabs count for
 set.termguicolors = true -- True color support
 set.undofile = true
+set.winborder = "rounded" -- Border on floating windows (LSP hover, lazygit, etc.)
 set.wrap = false -- Disable line wrap

@@ -132,6 +132,7 @@ return {
     -- stylua: ignore
     keys = {
       { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+      { "<leader>gg", function() Snacks.lazygit() end, desc = "LazyGit" },
     },
     ---@type snacks.Config
     opts = {
