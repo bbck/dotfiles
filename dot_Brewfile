@@ -47,16 +47,13 @@ brew "stylua"
 brew "yaml-language-server"
 brew "yamlfmt"
 
-tap "fluxcd/tap"
+tap "fluxcd/tap", trusted: true
 brew "fluxcd/tap/flux"
 
-tap "siderolabs/tap"
+tap "siderolabs/tap", trusted: true
 brew "siderolabs/tap/talosctl"
 
-tap "utkuozdemir/pv-migrate"
-brew "utkuozdemir/pv-migrate/pv-migrate"
-
-tap "controlplaneio-fluxcd/tap"
+tap "controlplaneio-fluxcd/tap", trusted: true
 brew "controlplaneio-fluxcd/tap/flux-operator"
 
 cask "1password"

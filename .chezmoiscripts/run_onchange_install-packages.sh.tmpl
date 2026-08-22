@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-brew bundle --cleanup --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ include "dot_Brewfile" }}
 EOF
 {{ end -}}
