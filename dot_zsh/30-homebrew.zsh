@@ -1,4 +1,4 @@
-if command -v brew &>/dev/null; then
+if [[ -x /opt/homebrew/bin/brew ]]; then
   export HOMEBREW_AUTO_UPDATE_SECS=86400
 
   eval "$(/opt/homebrew/bin/brew shellenv)"
