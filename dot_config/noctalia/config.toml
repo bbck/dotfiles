@@ -18,7 +18,7 @@ margin_ends = 860
 enabled = false
 
 [idle]
-behavior_order = ["lock", "screen-off", "suspend"]
+behavior_order = ["lock", "screen-off", "custom-suspend"]
 
 [idle.behavior.lock]
 action = "lock"
@@ -28,9 +28,11 @@ timeout = 900  # 15 min
 action = "screen_off"
 timeout = 1800  # 30 min
 
-[idle.behavior.suspend]
-action = "lock_and_suspend"
+[idle.behavior.custom-suspend]
+action = "command"
 timeout = 3600  # 60 min
+# Turn the display back on before suspend
+command = "hyprctl dispatch 'hl.dsp.dpms({action=\"enable\"})' && sleep 2 && systemctl suspend"
 
 [lockscreen]
 monitors = ["DP-1"]
