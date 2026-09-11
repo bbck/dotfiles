@@ -11,7 +11,7 @@ path = "/home/chris/Pictures/Wallpapers/lamp-post.jpg"
 [bar.main]
 start = ["launcher"]
 center = ["clock"]
-end = ["tray", "notifications", "network", "volume", "session"]
+end = ["tray", "notifications", "claudecode", "network", "volume", "session"]
 margin_ends = 860
 
 [bar.main.monitor.DP-4]
@@ -43,6 +43,11 @@ tint_intensity = 0.3
 [notification]
 monitors = ["DP-1"]
 
+[plugins]
+enabled = ["jrohland/claudecode"]
+# To update community plugins `noctalia msg plugins update community`
+auto_update = "official"
+
 [shell]
 launch_apps_custom_command = "uwsm-app -- $CMD"
 
@@ -51,6 +56,9 @@ global = false
 
 [weather]
 unit = "imperial"
+
+[widget.claudecode]
+type = "jrohland/claudecode:pill"
 
 [widget.network]
 show_label = false
