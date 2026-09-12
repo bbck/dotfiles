@@ -175,10 +175,11 @@ hl.window_rule({
 	workspace = "name:gaming",
 })
 
+-- Steam's secondary windows (chat, friends list, dialogs)
 hl.window_rule({
 	match = {
-		class = "steam",
-		title = "Friends List",
+		class = "^steam$",
+		title = "negative:^Steam$",
 	},
 	float = true,
 })
@@ -203,7 +204,19 @@ hl.window_rule({
 	center = true,
 	fullscreen = false,
 	fullscreen_state = 0,
-	decorate = false,
+	no_blur = true,
+})
+
+-- Battle.net launcher
+hl.window_rule({
+	match = {
+		class = "^steam_app.*$",
+		initial_title = "^Battle\\.net.*$",
+	},
+	float = true,
+	center = true,
+	fullscreen = false,
+	fullscreen_state = 0,
 	no_blur = true,
 })
 

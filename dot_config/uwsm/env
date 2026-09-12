@@ -4,3 +4,5 @@ export EDITOR=nvim
 export VISUAL=nvim
 export QT_QPA_PLATFORMTHEME=hyprqt6engine
 export QT_QUICK_CONTROLS_STYLE=org.kde.desktop
+export XCURSOR_THEME=Adwaita
+export XCURSOR_SIZE=24
