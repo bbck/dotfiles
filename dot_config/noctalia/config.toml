@@ -1,12 +1,17 @@
 [theme]
+builtin = "Kanagawa"
 community_palette = "Kanagawa Paper"
 source = "community"
+wallpaper_scheme = "muted"
 
 [theme.templates]
 builtin_ids = ["gtk3", "gtk4"]
 
 [wallpaper.default]
 path = "/home/chris/Pictures/Wallpapers/lamp-post.jpg"
+
+[bar]
+order = ["main"]
 
 [bar.main]
 start = ["launcher"]
@@ -16,6 +21,24 @@ margin_ends = 860
 
 [bar.main.monitor.DP-4]
 enabled = false
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "mic_mute"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "power_profile"
+
+[[control_center.shortcuts]]
+type = "clipboard"
 
 [idle]
 behavior_order = ["lock", "screen-off", "custom-suspend"]
@@ -36,9 +59,6 @@ command = "hyprctl dispatch 'hl.dsp.dpms({action=\"enable\"})' && sleep 2 && sys
 
 [lockscreen]
 monitors = ["DP-1"]
-tint_intensity = 0.3
-
-# TODO: lockscreen widgets
 
 [notification]
 monitors = ["DP-1"]
@@ -50,9 +70,13 @@ auto_update = "official"
 
 [shell]
 launch_apps_custom_command = "uwsm-app -- $CMD"
+polkit_agent = true
 
 [shell.launcher.providers.calculator]
 global = false
+
+[shell.screenshot]
+directory = "/home/chris/Pictures/Screenshots"
 
 [weather]
 unit = "imperial"
@@ -65,3 +89,6 @@ show_label = false
 
 [widget.tray]
 drawer = true
+
+[widget.workspaces]
+label_source = "name"
