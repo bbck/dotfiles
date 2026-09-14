@@ -157,10 +157,28 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map("n", "<leader>hs", gitsigns.stage_hunk)
-        map("n", "<leader>hr", gitsigns.reset_hunk)
-        map("v", "<leader>hs", function() gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
-        map("v", "<leader>hr", function() gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
+        map("n", "]c", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "]c", bang = true })
+          else
+            gitsigns.nav_hunk("next")
+          end
+        end, { desc = "Next Hunk" })
+        map("n", "[c", function()
+          if vim.wo.diff then
+            vim.cmd.normal({ "[c", bang = true })
+          else
+            gitsigns.nav_hunk("prev")
+          end
+        end, { desc = "Prev Hunk" })
+
+        map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "Stage Hunk" })
+        map("n", "<leader>ghr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
+        map("n", "<leader>ghp", gitsigns.preview_hunk_inline, { desc = "Preview Hunk" })
+        -- stylua: ignore start
+        map("v", "<leader>ghs", function() gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = "Stage Selected Lines" })
+        map("v", "<leader>ghr", function() gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = "Reset Selected Lines" })
+        -- stylua: ignore end
 
         map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "Toggle Git Blame" })
         map({ "o", "x" }, "ih", gitsigns.select_hunk)

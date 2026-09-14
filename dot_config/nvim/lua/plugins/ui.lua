@@ -15,6 +15,16 @@ return {
       diag_background = false,
       -- dim inactive windows.
       dim_inactive = true,
+      overrides = function(colors)
+        local theme = colors.theme
+        -- remove the strikethrough on deleted lines
+        local deleted = { bg = theme.diff.delete_light, fg = theme.vcs.removed }
+        return {
+          GitSignsDeleteVirtLn = deleted,
+          GitSignsDeletePreview = deleted,
+          GitSignsVirtLnum = deleted,
+        }
+      end,
     },
   },
   {
@@ -182,6 +192,7 @@ return {
       { '<leader>sb', "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
       { "<leader>sf", "<cmd>FzfLua files<cr>", desc = "Files (Root Dir)" },
       { "<leader>sF", "<cmd>FzfLua files<cr>", desc = "Files (cwd)" },
+      { "<leader>sg", "<cmd>FzfLua git_status<cr>", desc = "Changed Files (git status)" },
       { "<leader>sh", "<cmd>FzfLua help_tags<cr>", desc = "Help Pages" },
       { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "Symbols" },
       { "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", desc = "Symbols (Workspace)" },
@@ -197,6 +208,14 @@ return {
         width = 1.0,
         row = 1.0,
       },
+      git = {
+        status = {
+          actions = {
+            ["ctrl-h"] = { fn = function(...) require("fzf-lua.actions").git_stage(...) end, reload = true },
+            ["ctrl-l"] = { fn = function(...) require("fzf-lua.actions").git_unstage(...) end, reload = true },
+          },
+        },
+      },
     },
   },
   {
@@ -211,7 +230,7 @@ return {
       spec = {
         { "<leader>b", group = "buffers" },
         { "<leader>g", group = "git" },
-        { "<leader>h", group = "git hunks" },
+        { "<leader>gh", group = "hunks" },
         { "<leader>s", group = "search" },
         { "<leader>t", group = "toggle" },
         { "<leader>w", proxy = "<c-w>", group = "windows" },
