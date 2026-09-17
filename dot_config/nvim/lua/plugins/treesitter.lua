@@ -23,6 +23,8 @@ return {
         "gosum",
         "gotmpl",
         "gowork",
+        "jinja",
+        "jinja_inline",
         "json",
         "jsonc",
         "lua",
