@@ -211,9 +211,10 @@ hl.window_rule({
 hl.window_rule({
 	match = {
 		class = "^steam_app.*$",
-		initial_title = "^Battle\\.net.*$",
+		initial_title = "^(Battle\\.net.*)?$",
 	},
 	float = true,
+	size = { 1600, 1000 },
 	center = true,
 	fullscreen = false,
 	fullscreen_state = 0,
