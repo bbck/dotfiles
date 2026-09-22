@@ -113,7 +113,8 @@ return {
               },
             },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { "filename", path = 4, padding = { right = 0 } },
+            { "filename", path = 4, separator = " ›", padding = { right = 0 } },
+            { "navic", color_correction = "dynamic" },
           },
           lualine_x = {
             {
@@ -133,6 +134,18 @@ return {
 
       return opts
     end,
+  },
+  {
+    -- https://github.com/SmiteshP/nvim-navic
+    "SmiteshP/nvim-navic",
+    event = "LspAttach",
+    ---@module 'nvim-navic'
+    opts = {
+      lsp = { auto_attach = true },
+      separator = " › ",
+      depth_limit = 5,
+      highlight = true,
+    },
   },
   {
     -- https://github.com/folke/snacks.nvim

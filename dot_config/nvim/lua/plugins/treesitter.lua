@@ -43,4 +43,26 @@ return {
       highlight = { enable = true },
     },
   },
+  {
+    -- https://github.com/nvim-treesitter/nvim-treesitter-context
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPost", "BufNewFile" },
+    ---@module 'treesitter-context'
+    ---@type TSContext.UserConfig
+    opts = {
+      mode = "cursor",
+      max_lines = 5,
+      multiline_threshold = 1,
+      trim_scope = "outer",
+    },
+    keys = {
+      { "<leader>tc", "<cmd>TSContext toggle<cr>", desc = "Toggle Treesitter Context" },
+      {
+        "[C",
+        function() require("treesitter-context").go_to_context(vim.v.count1) end,
+        desc = "Jump to Context (upwards)",
+      },
+    },
+  },
 }
