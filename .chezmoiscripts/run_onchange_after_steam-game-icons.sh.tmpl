@@ -1,0 +1,52 @@
+{{ if eq .chezmoi.os "linux" -}}
+{{- $games := output "sh" "-c" "grep -hos 'steam://rungameid/[0-9]*' \"${XDG_DATA_HOME:-$HOME/.local/share}\"/applications/*.desktop | sed 's|.*/||' | sort -un | tr '\\n' ' ' || true" | trim -}}
+#!/bin/bash
+# Points Steam games the icon theme lacks at a generic game icon, via
+# symlinks in the ~/.local/share/icons overlay for the active theme.
+#
+# Re-runs when the theme, fallback icon, or installed games change:
+# theme={{ .icons.theme }} steam_game_fallback={{ .icons.steam_game_fallback }}
+# games: {{ $games }}
+
+set -euo pipefail
+
+theme='{{ .icons.theme }}'
+icon='{{ .icons.steam_game_fallback }}'
+games=({{ $games }})
+
+data="${XDG_DATA_HOME:-$HOME/.local/share}"
+src="/usr/share/icons/$theme"
+overlay="$data/icons/$theme"
+
+# Links from earlier runs, for any theme: steam_icon_* symlinks into a system
+# theme that aren't themselves game icons. Chezmoi-managed icons are real
+# files or point at steam_icon_*, so they're left alone.
+for link in "$data"/icons/*/apps/scalable/steam_icon_*.svg; do
+    [ -L "$link" ] || continue
+    target=$(readlink "$link")
+    case "$target" in
+        /usr/share/icons/*/steam_icon_*) ;;
+        /usr/share/icons/*) rm -f "$link" ;;
+    esac
+done
+
+[ -d "$src" ] || { echo "$src not found, skipping Steam game icons" >&2; exit 0; }
+
+fallback=$(find "$src" -path '*/scalable/*' -name "$icon.svg" -print -quit)
+[ -n "$fallback" ] || { echo "$icon not found in $theme, skipping Steam game icons" >&2; exit 0; }
+
+mkdir -p "$overlay/apps/scalable"
+for id in "${games[@]}"; do
+    name="steam_icon_$id"
+    # Theme already has it, or chezmoi manages an override for it.
+    [ -n "$(find "$src" -name "$name.*" -print -quit)" ] && continue
+    [ -e "$overlay/apps/scalable/$name.svg" ] && continue
+    ln -s "$fallback" "$overlay/apps/scalable/$name.svg"
+done
+
+# noctalia only searches <size>/apps/ in overlays without an index.theme.
+if [ ! -e "$overlay/scalable/apps" ]; then
+    mkdir -p "$overlay/scalable"
+    ln -s ../apps/scalable "$overlay/scalable/apps"
+fi
+{{ end -}}

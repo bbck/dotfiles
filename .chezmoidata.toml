@@ -1,2 +1,3 @@
 [icons]
-theme = "yet-another-monochrome-icon-set"
+theme = "Gruvbox-Plus-Dark"
+steam_game_fallback = "retroarch"  # Icon for Steam games the theme has no icon for.
