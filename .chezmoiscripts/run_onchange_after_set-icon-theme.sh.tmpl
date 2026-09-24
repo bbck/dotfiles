@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+# Re-runs whenever .icons.theme changes: {{ .icons.theme }}
+set -eu
+
+if command -v gsettings >/dev/null 2>&1; then
+    gsettings set org.gnome.desktop.interface icon-theme '{{ .icons.theme }}'
+fi
+{{ end -}}
