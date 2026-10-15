@@ -59,6 +59,8 @@ command = "hyprctl dispatch 'hl.dsp.dpms({action=\"enable\"})' && sleep 2 && sys
 
 [lockscreen]
 monitors = ["DP-1"]
+transition = ["fade"]
+transition_duration = 1000
 
 [notification]
 monitors = ["DP-1"]
