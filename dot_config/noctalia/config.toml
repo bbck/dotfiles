@@ -77,6 +77,11 @@ polkit_agent = true
 [shell.launcher.providers.calculator]
 global = false
 
+[shell.privacy]
+# To find an app's name, run this then launch the app:
+#   pw-dump -m -N | jq --unbuffered -r '.[]? | select(.info.props["media.class"]? == "Stream/Input/Audio") | .info.props["application.name"]'
+mic_filter_regex = '(Battle\.net|Wow[A-Za-z]*|Gw2-64)\.exe'
+
 [shell.screenshot]
 directory = "/home/chris/Pictures/Screenshots"
 
