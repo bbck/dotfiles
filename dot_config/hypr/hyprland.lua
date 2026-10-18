@@ -26,6 +26,7 @@ hl.config({
 	input = {
 		accel_profile = "flat",
 		sensitivity = 0,
+		numlock_by_default = true,
 	},
 	cursor = {
 		no_hardware_cursors = 1,
