@@ -24,6 +24,10 @@ desired='{
       "Bash(op:*)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "feedbackDrafts": "off",
   "awaySummaryEnabled": false,
   "agentPushNotifEnabled": true
