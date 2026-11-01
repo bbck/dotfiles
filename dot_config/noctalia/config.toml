@@ -74,8 +74,13 @@ auto_update = "official"
 launch_apps_custom_command = "uwsm-app -- $CMD"
 polkit_agent = true
 
+[shell.launcher]
+categories = false
+fetch_exchange_rates = false
+layout = "simple"
+
 [shell.launcher.providers.calculator]
-global = false
+global = true
 
 [shell.privacy]
 # To find an app's name, run this then launch the app:
